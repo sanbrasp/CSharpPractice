@@ -12,3 +12,4 @@ I:\skole\Subject 2 Operational Backend Programming\csharp_practice_tasks\CSharpP
 I:\skole\Subject 2 Operational Backend Programming\csharp_practice_tasks\CSharpPractice\traditional_no_top_level\obj\Debug\net10.0\traditional_no_top_level.pdb
 I:\skole\Subject 2 Operational Backend Programming\csharp_practice_tasks\CSharpPractice\traditional_no_top_level\obj\Debug\net10.0\traditional_no_top_level.genruntimeconfig.cache
 I:\skole\Subject 2 Operational Backend Programming\csharp_practice_tasks\CSharpPractice\traditional_no_top_level\obj\Debug\net10.0\ref\traditional_no_top_level.dll
+I:\skole\Subject 2 Operational Backend Programming\csharp_practice_tasks\CSharpPractice\traditional_no_top_level\obj\Debug\net10.0\traditional_no_top_level.sourcelink.json
