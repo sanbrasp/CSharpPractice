@@ -1,9 +1,9 @@
 ﻿
-namespace traditional_no_top_level;
+namespace top_level_statements;
 
-public static class Lesson2
+public static class TopLesson2
 {
-    public static void Run()
+    public static void RunIt()
     {
         Console.Write("Enter your age: ");
         string? input = Console.ReadLine();

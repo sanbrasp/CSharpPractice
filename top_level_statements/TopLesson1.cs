@@ -1,9 +1,9 @@
 ﻿
-namespace traditional_no_top_level;
+namespace top_level_statements;
 
-public static class Lesson1
+public static class TopLesson1
 {
-    public static void Run()
+    public static void RunIt()
     {
         Console.WriteLine("Welcome to C# (Top-Level)!");
         Console.Write("What is your name? ");
