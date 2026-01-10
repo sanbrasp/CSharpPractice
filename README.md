@@ -20,6 +20,9 @@ Project created for personal use for the journey of learning C#.
   - [Constants](#constants)
   - [C# Identifiers](#c-identifiers)
   - [User Input](#user-input)
+  - [Operators](#operators)
+  - [Math](#math)
+  - [Strings](#strings)
 
 ---
 
@@ -45,6 +48,10 @@ in Program.cs of "top_level_statements" project - I will get to that.
 
 ~~I realize I will need most practice figuring out traditional, which is why I decided to focus on that first.~~
 It appears I might have fixed this now.
+
+The practice lessons in the two projects are AI generated, while the notes from the main project README.md (this file)
+are read and written based on W3Schools. I decided to not add the practice lessons from W3Schools because they are so
+many, and available for free for anyone who wishes to do them.
 
 
 [🏚️ Back to top](#contents)
@@ -446,3 +453,146 @@ Console.WriteLine("Enter your age: ");
 int age = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Your age is: " + age);
 ```
+
+---
+
+### Operators
+Operators are used to perform operations on variables and values.
+
+```csharp
+int x = 100 + 50;
+```
+Often used to add together two values.  
+Can also be used to add together a variable and a value:
+```csharp
+int sum1 = 100 + 50; // 150 (100 + 50)
+int sum2 = sum1 + 250; // 400 (150 + 250)
+int sum3 = sum2 + sum2; // 800 (400 + 400)
+```
+
+**Arithmetic Operations**
+
+| **Operator** | **Name**       | **Description**                   | **Example** |
+|--------------|----------------|-----------------------------------|-------------|
+| +            | Addition       | Adds together two values          | x + y       |
+| -            | Subtraction    | Subtracts one value from another  | x - y       |
+| *            | Multiplication | Multiplies two values             | x * y       |
+| /            | Division       | Divides one value by another      | x / y       |
+| %            | Modulus        | Returns the division remainder    | x % y       |
+| ++           | Increment      | Increases the value of a var by 1 | x++         |
+| --           | Decrement      | Decreases the value of a var by 1 | x--         |
+
+---
+
+**Assignment Operators**  
+Used to assign values to variables.
+
+In this example:
+```csharp
+int x = 10;
+```
+the *assignment operator* '=' is used to assign the value of 10 to the variable x.
+
+The *addition assignment operator* '+' adds value to a variable.
+```csharp
+int x = 10;
+x += 5;
+```
+
+**List of all assignment operators:**
+
+| **Operator** | **Example** | **Same As** |
+|--------------|-------------|------------|
+| =            | x = 5       | x = 5      |
+| +=           | x += 3      | x = x + 3  |
+| -=           | x -= 3      | x = x - 3  |
+| *=           | x *= 3      | x = x * 3  |
+| /=           | x /= 3      | x = x / 3  |
+| %=           | x %= 3      | x = x % 3  |
+| &=           | x &= 3      | x = x & 3  |
+| \|=          | x \|= 3     | x = x \| 3 |
+| ^=           | x ^= 3      | x = x ^ 3  |
+| >>=          | x >> = 3    | x = x >> 3 |
+| <<=          | x << = 3    | x = x << 3 |
+
+
+---
+
+**Comparison Operators**  
+Used to compare two values (or variables).  
+This is important in programming because it helps us find answers and make decisions.
+
+The return value of a comparison is either True or False.
+
+**Example**  
+Find out if 5 is greater than 3 (I mean, *who* would know such a thing by heart??):
+```csharp
+int x = 5;
+int y = 3;
+
+Console.WriteLine(x > y); // Returns True because 5 is greater than 3
+```
+
+**Comparison Operators**
+
+| **Operator** | **Name**                 | **Example** |
+|--------------|--------------------------|-------------|
+| ==           | Equal to                 | x == y      |
+| !=           | Not equal                | x != y      |
+| \>           | Greater than             | x > y       |
+| <            | Less than                | x < y       |
+| >=           | Greater than or equal to | x >= y      |
+| <=           | Less than or equal to    | x <= y      |
+
+
+**Logical Operators**  
+Test for True and False using *Logical Operators*.
+
+Logical operators are used to determine the logic between variables or values.
+
+**Logical Operators List**  
+
+| **Operator** | **Name**    | **Description**                                         | **Example**      |
+|--------------|-------------|---------------------------------------------------------|------------------|
+| &&           | Logical and | Returns True if both statements are true                | x < 5 && x < 10  |
+| \|\|         | Logical or  | Returns True if one of the statements is true           | x < 5 \|\| x < 4 |
+| !            | Logical not | Reverse the result, returns False if the result is true | !(x < 5 && x < 10 |
+
+---
+
+### Math
+Math is a class. It has several methods.  
+
+**Math.Max(x,y)**  
+Can be used to find the highest value of x and y.
+```csharp
+Math.Max(5, 10);
+```
+
+**Math.Min(x,y)**  
+Find the lowest value of x and y.
+```csharp
+Math.Min(5, 10);
+```
+
+**Math.Sqrt(x)**  
+Used to return square root of x.
+```csharp
+Math.Sqrt(64);
+```
+
+**Math.Abs(x)**  
+Returns the absolute (positive) value of x.
+```csharp
+Math.Abs(-4.7);
+```
+
+**Math.Round()**  
+Rounds a number to the nearest whole number.
+```csharp
+Math.Round(9.99);
+```
+
+---
+
+### Strings
