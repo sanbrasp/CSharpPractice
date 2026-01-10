@@ -19,6 +19,7 @@ Project created for personal use for the journey of learning C#.
       - [Type Casting](#type-casting)
   - [Constants](#constants)
   - [C# Identifiers](#c-identifiers)
+  - [User Input](#user-input)
 
 ---
 
@@ -412,3 +413,36 @@ int m = 60;
 [🏚️ Back to top](#contents)
 
 ---
+
+### User Input
+To get user input in C#, we use ```Console.ReadLine()```.
+
+This example lets user input their username, stored as variable userName, then we print the value.
+```csharp
+// Type username and press enter:
+Console.WriteLine("Enter username: ");
+
+// Create a string variable and get user input -> store input in variable:
+string userName = Console.ReadLine();
+
+// Print the value of the variable (userName);
+Console.WriteLine("Username is: " + userName);
+```
+
+The ```Console.ReadLine()``` method returns a ```string```. Therefore you cannot get info from another data type,
+such as ```int```. The following will cause an *error*:
+```csharp
+Console.WriteLine("Enter your age: ");
+int age = Console.ReadLine();
+Console.WriteLine("Your age is: " + age);
+```
+The error will be something like:
+>Cannot implicitly convert type 'string' to 'int'
+
+You can not implicitly convert type *string* to type *int*.  
+However, we can use the Convert.To method for this, and explicitly convert:
+```csharp
+Console.WriteLine("Enter your age: ");
+int age = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Your age is: " + age);
+```
