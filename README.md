@@ -1,32 +1,35 @@
 # C# Practice
-A collection of c# practice tasks.
-
----
+A collection of c# practice tasks and useful notes for learning C#.
 
 Project created for personal use for the journey of learning C#.
 
 ---
 
-.gitignore:  
-See .gitignore for source used
-
----
-
 ## Contents
+- [Acknowledgements](#acknowledgements)
 - [About](#about)
+- [Useful sources](#useful-sources)
 - [Useful notes for a new learner](#useful-notes)
   - [Main](#main)
   - [WriteLine](#writeline)
   - [Write](#write)
   - [Comments](#comments)
   - [Variables and Types](#variables-and-types)
+    - [Types](#types)
+      - [Type Casting](#type-casting)
+  - [Constants](#constants)
+  - [C# Identifiers](#c-identifiers)
 
 ---
 
-## Useful sources
-[W3 Schools - C#](https://www.w3schools.com/cs/)  
-[C# Documentation - Microsoft](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/)  
-[Gitignore Template](https://github.com/github/gitignore/blob/main/VisualStudio.gitignore)
+## Acknowledgements
+W3Schools has been used vigoriously during the creation of this project.
+
+AI (Copilot) has also been used vigoriously as a learning tool for creating practice tasks and explaining
+terminology, methods, code, etc.
+
+.gitignore:  
+https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 ---
 
@@ -42,6 +45,24 @@ in Program.cs of "top_level_statements" project - I will get to that.
 ~~I realize I will need most practice figuring out traditional, which is why I decided to focus on that first.~~
 It appears I might have fixed this now.
 
+
+[🏚️ Back to top](#contents)
+
+---
+
+## Useful sources
+Practice tasks and theory:  
+[W3 Schools - C#](https://www.w3schools.com/cs/)  
+
+Lots and lots of reading:  
+[C# Documentation - Microsoft](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/)  
+
+Large repo with many .gitignore templates:  
+[Gitignore Templates](https://github.com/github/gitignore/blob/main/VisualStudio.gitignore)
+
+
+[🏚️ Back to top](#contents)
+
 ---
 
 ## Useful notes
@@ -56,6 +77,9 @@ and understand how it's built.
 ### Main
 Main is the entrypoint that executes your code in traditional C# programming.
 
+
+[🏚️ Back to top](#contents)
+
 ---
 
 ### WriteLine()
@@ -69,6 +93,8 @@ You can also do calculations using this method:
 ```csharp
 Console.WriteLine(3 + 3);
 ```
+
+[🏚️ Back to top](#contents)
 
 ---
 
@@ -93,6 +119,9 @@ One line and multiline.
 >multiline comment */
 
 Like in Python, don't overdo it. Comment where it adds value.
+
+
+[🏚️ Back to top](#contents)
 
 ---
 
@@ -135,6 +164,169 @@ bool myBool = true;
 string myText = "Hello World"
 ```
 
+[🏚️ Back to top](#contents)
+
+---
+
+### Types
+Variable types *must* be declared in C#.  
+
+**Example**
+```csharp
+int myNum = 5; // Integer (whole number)
+double myDoubleNum = 5.99D; // Float (floating point number)
+char myLetter = 'D'; // One character, single quotes
+bool myBool = true; // Boolean; True or False
+string myText = "Hello World"; // String; text
+```
+
+The data type specifies the size and type of variable values.
+
+It is important to use the correct data type for the corresponding variable:
+- to avoid errors
+- save time
+- save memory
+- maintainable and readable code
+
+**Most common data types and sizes:**
+
+| Data Type | Size                  | Description                                                                                |
+|-----------|-----------------------|--------------------------------------------------------------------------------------------|
+| int       | 4 bytes               | Stores whole numbers from -2,147,483,648 to 2,147,483,647                                  |
+| long      | 8 bytes               | Stores whole numbers               -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 |
+| float     | 4 bytes               | Stores fractional numbers. Sufficient for storing 6 to 7 decimal digits                    |
+| double    | 8 bytes               | Stores fractional numbers. Sufficient for storing 15 decimal digits                        |
+| bool      | 1 byte                | Stores true or false values                                                                |
+| char      | 2 bytes               | Stores a single character/letter, surrounded by single quotes                              |
+| string    | 2 bytes per character | Stores a sequence of characters, surrounded by double quotes                               |
+
+**Numbers**  
+Numbers are divided into 2 groups:  
+* Integer types: stores whole numbers, positive or negative (123, -456) without decimals. Valid types
+are ```int``` and ```long```. Which type you use depends on the numeric value.
+* Floating point types: represents numbers with fractional parts, one or more decimals. Valid types are 
+```float``` and ```double```.
+
+**Integer example:**
+```csharp
+int myNum = 100000;
+Console.WriteLine(myNum);
+```
+**Long example:**
+```csharp
+long myNum = 15000000000L;
+Console.WriteLine(myNum);
+```
+**Floating point example:**
+```csharp
+float myNum = 5.75F;
+Console.WriteLine(myNum);
+```
+**Double example:**
+```csharp
+double myNum = 19.99D;
+Console.WriteLine(myNum);
+```
+
+Use ```float``` or ```double```?  
+The *precicion* of a floating point value indicates how many digits the value can have after the decimal point.
+The precicion of *float* is only six or seven decimal digits, while *double* variables have a precicion
+of about 15 digits. Therefore it is safer to use *double* for most calculations.
+
+**Scientific Numbers**  
+A floating point number can also be a scientific number with an "e" to indicate the power of 10:  
+```csharp
+float f1 = 35e3F;
+double d1 = 12E4D;
+Console.WriteLine(f1);
+Console.WriteLine(d1);
+```
+
+**Booleans**  
+Declared with the ```bool``` keyword, can only be *true* or *false*:
+```csharp
+bool isCSharpFun = true;
+bool isFishTasty = false; // I don't agree with this! W3Schools did this!
+Console.WriteLine(isCSharpFun); // Outputs True
+Console.WriteLine(isFishTasty); // Outputs False
+```
+Boolean values are mostly used for conditional testing.
+
+**Characters**  
+The ```char``` data type is used to store a single character. Must be surrounded by single quotes.  
+```csharp
+char myGrade = 'A';
+Console.WriteLine(myGrade);
+```
+
+**Strings**  
+Stores sequences:
+```csharp
+string greeting = "Hello World!";
+Console.WriteLine(greeting);
+```
+
+
+[🏚️ Back to top](#contents)
+
+
+---
+
+### Type Casting
+Type casting is when you assign a value of one data type to another type.
+
+In C# there are two types of casting:
+
+* Implicit Casting - Automatic, converting a smaller type to a larger type size
+>char -> int -> long -> float -> double
+
+* Explicit Casting - Manual, converting a larger type to a smaller type size
+>double -> float -> long -> int -> char
+
+
+**Implicit Casting**  
+Smaller to Larger:
+```csharp
+int myInt = 9;
+double myDouble = myInt; // Auto cast -> int to double
+
+Console.WriteLine(myInt); // Outputs 9
+Console.WriteLine(myDouble); // Outputs 9
+```
+
+**Explicit Casting**
+Larger to Smaller:
+```csharp
+double myDouble = 9.78D;
+int myInt = (int) myDouble; // Manual casting -> double to int
+
+Console.WriteLine(myDouble); // Output 9.78
+Console.WriteLine(myInt); // Output 9
+```
+
+**Type Conversion Methods**  
+It is possible to convert data types explicitly using built-in methods such as:
+* Convert.ToBoolean
+* Convert.ToDouble
+* Convert.ToString
+* Convert.ToInt32 (int)
+* Convert.ToInt64 (long)
+
+**Example:**
+```csharp
+int myInt = 10;
+double myDouble = 5.25;
+bool myBool = true;
+
+Console.WriteLine(Convert.ToString(myInt)); // Convert int to string
+Console.WriteLine(Convert.ToDouble(myInt)); // Convert int to double
+Console.WriteLine(Convert.ToInt32(myDouble)); // Convert double to int
+Console.WriteLine(Convert.ToString(myBool)); // Convert bool to string
+```
+
+
+[🏚️ Back to top](#contents)
+
 ---
 
 ### Constants
@@ -167,3 +359,56 @@ int x = 5;
 int y = 6;
 Console.WriteLine(x + y); // Print the value of x + y
 ```
+
+**Several variables of same type**  
+You can declare several variables of the same type in one line:
+```csharp
+int x = 5, y = 6, z = 50;
+Console.WriteLine(x + y + z);
+```
+Or like this:
+```csharp
+int x, y, z;
+x = y = z = 50;
+Console.WriteLine(x + y + z);
+```
+
+[🏚️ Back to top](#contents)
+
+---
+
+### C# Identifiers
+All C# variables must be identified with unique names.  
+Identifiers can be short (x, y) or more descriptive (age, sum, totalVolume).  
+
+*Note:* It is recommended to use descriptive names in order to create understandable and maintainable code.
+
+**Example**
+```csharp
+// Good
+int minutesPerHour = 60;
+
+// OK, but not so easy to understand
+int m = 60;
+```
+
+**The general rules for naming variables are:**
+
+* Names can contain letters, digits and the underscore character (_)
+
+
+* Names must begin with a letter or underscore 
+
+
+* Names should start with a lowercase letter, and cannot contain whitespace 
+
+
+* Names are case-sensitive ("myVar" and "myvar" are different variables)
+
+
+* Reserved words (like C# keywords, such as int or double) cannot be used as names
+
+
+[🏚️ Back to top](#contents)
+
+---
