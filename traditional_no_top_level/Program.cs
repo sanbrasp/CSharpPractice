@@ -6,7 +6,8 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Choose lesson: 1 or 4 (Traditional C#)");
+        // Choose lesson via args (1 - 5) or hardcode selection
+        Console.WriteLine("Choose lesson: 1 or 5 (Traditional C#)");
         Console.Write("Enter a choice: ");
         var choice = Console.ReadLine();
 
@@ -26,6 +27,10 @@ internal class Program
             
             case "4":
                 Lesson4.Run();
+                break;
+            
+            case "5":
+                Lesson5.Run();
                 break;
 
             default:
