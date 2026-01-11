@@ -10,6 +10,7 @@ Project created for personal use for the journey of learning C#.
 - [About](#about)
 - [Useful sources](#useful-sources)
 - [Useful notes for a new learner](#useful-notes)
+  - [Naming Conventions](#naming-conventions)
   - [Main](#main)
   - [WriteLine](#writeline)
   - [Write](#write)
@@ -23,6 +24,10 @@ Project created for personal use for the journey of learning C#.
   - [Operators](#operators)
   - [Math](#math)
   - [Strings](#strings)
+  - [Booleans](#booleans)
+  - [If ... Else](#if--else)
+  - [Switch](#switch)
+  - [While Loop](#while-loop)
 
 ---
 
@@ -79,6 +84,80 @@ verbosity. There is SO much text!!!
 
 I will be adding notes and things here that I found useful while trying to navigate this new language 
 and understand how it's built.
+
+---
+
+# Naming Conventions
+Naming conventions in C#:  
+
+**Variables and parameters:**  
+* camelCase
+* Clear, meaningful names
+
+Examples:  
+* int count;
+* string customerName;
+* double totalAmount;
+* bool isApproved;
+
+**Methods**  
+* PascalCase
+* Use verbs or phrases that describe the action
+
+Examples:  
+* viud CalculateTotal() { }
+* string FormatName(string name) { }
+* Task SaveChangesAsync() { } // Async methods end with "Async"
+
+**Classes, Structs, Enums, Records, Namespaces**  
+* PascalCase
+
+Examples:  
+* public class OrderService { }
+* public struct Point2D { }
+* public enum OrderStatus { Pending, Shipped, Delivered }
+* namespace TraditionalTopLevel { }
+
+**Properties**  
+* PascalCase, noun/adjectives
+
+Examples:  
+* public string Title { get; set; }
+* public int Quantity { get; private set; }
+* public bool IsActive { get; set; }
+
+**Fields**  
+* Private fields: _camelCase (leading underscore)
+* Public fields (rare): PascalCase (prefer properties instead)
+
+Examples:  
+* private readonly ILogger _logger;
+* private int _retryCount;
+
+**Constants and Readonly statics**  
+* PascalCase (not ALL_CAPS in .NET)
+
+Examples:  
+* public const int DefaultTimeoutSeconds = 30;
+* public static readonly string AppName = "GitGetter";
+
+**Interfaces**
+* PascalCase with leading I
+
+Examples:
+* public interface IOrderRepository { }
+
+**Events and Event Handlers**
+* Events: PascalCase (noun or verb phrase) often ending with "Changed", "Completed", etc
+* Handlers: On + EventName
+
+Examples:  
+* public event EventHandler StatusChanged;
+* protected virtual void OnStatusChanged() { raise event }
+
+
+
+[🏚️ Back to top](#contents)
 
 ---
 
@@ -596,3 +675,499 @@ Math.Round(9.99);
 ---
 
 ### Strings
+Used for storing text, just like in Python.
+
+A string variable contains a collection of characters surrounded by double quotes "string".
+
+```csharp
+string greeting = "Hello!"
+```
+It can contain many words.
+
+**String Length**  
+In C# a string is actually an object, which contain properties and methods that can perform
+certain operations on strings. For example, the length of a string can be found using the
+```Length``` property.
+
+```csharp
+string txt = "ABCDEFGHLMNOPQRSTUVWXYZ";
+Console.WriteLine("The length of the txt string is: " + txt.Length);
+```
+
+**Other Methods**  
+Many string methods are available, for example ToUpper() and ToLower() which returns a copy of the
+string converted to uppercase or lowercase.
+
+```csharp
+string txt = "Hello World!";
+Console.WriteLine(txt.ToUpper()); // Outputs "HELLO WORLD!"
+Console.WriteLine(txt.ToLower()); // Outputs "hello world!"
+```
+
+**String Concatenation**  
+The + operator can be used between strings to combine them.  
+This is called 'concatenation'.
+
+```csharp
+string firstName = "John ";
+string lastName = "Doe";
+string name = firstName + lastName;
+Console.WriteLine(name);
+```
+Note the added whitespace after "John" in order to have space between first and last name.
+
+We can also use the ```string.Concat()``` method to concatenate two strings:
+```csharp
+string firstName = "John ";
+string lastName = "Doe";
+string name = string.Concat(firstName, lastName);
+Console.WriteLine(name);
+```
+
+Warning:  
+C# uses the + operator for both addition and concatenation.  
+Remember that numbers are added, and strings are concatenated.
+
+Adding numbers will result in a number:
+```csharp
+int x = 10;
+int y = 20;
+int z = x + y; // z will be 30 (an integer/number)
+```
+
+Adding strings will result in a string concatenation:
+```csharp
+string x = "10";
+string y = "20";
+string z = x + y; // Output will be 1020 (string)
+```
+
+**String Interpolation**  
+Another option for string concatenation (like Python's F-strings) is string interpolation.  
+It substitutes values of variables into placeholders in a string. No need to worry about spaces.
+
+```csharp
+string firstName = "John";
+string lastName = "Doe";
+string name = $"My full name is: {firstName} {lastName}";
+Console.WriteLine(name);
+```
+The dollar sign, '$', must be used when using the string interpolation method.  
+String interpolation was introduced in C# version 6.
+
+
+**Access Strings**  
+Access the characters in a string by referring to index using square brackets '[]', just like in Python.
+
+This example prints the *first character* in *myString*:  
+```csharp
+string myString = "Hello";
+Console.WriteLine(myString[0]); // Outputs "H"
+```
+String indexes start with 0: [0] is the first character. [1] is the second, etc. Just like in Python.
+
+This example prints the *second character*:
+```csharp
+string myString = "Hello";
+Console.WriteLine(myString[1]); // Outputs "e"
+```
+
+You can also find the index position of a specific character in a string by using the
+IndexOf() method.
+```csharp
+string myString = "Hello";
+Console.WriteLine(myString.IndexOf("e")); // Outputs "1"
+```
+
+Another useful method is Substring(), which extracts the characters from a string, starting from the
+specified character position/index, and returns a new string. This method is often used together with
+IndexOf() to get the specific character position.
+```csharp
+// Full name:
+string name = "John Doe";
+
+// Location of the letter D:
+int charPos = name.IndexOf("D");
+
+// Get last name:
+string lastName = name.Substring(charPos);
+
+// Print the result:
+Console.WriteLine(lastName)
+```
+
+
+**Special Characters**  
+Because strings must be written within quotes, C# will misunderstand the following and raise an error:
+```csharp
+string txt = "We are the "Vikings" of the North!";
+```
+To avoid this, we use the ```backslash escape character``` -> '\'.  
+The backslash escape character turns special characters into string characters:
+
+| **Escape Character** | **Result** | **Description**  |
+|----------------------|------------|------------------|
+| \\'                  | '          | Single quote     |
+| \\"                  | "          | Double quote     |
+| \\\                  | \          | Backslash        |
+
+The sequence ```\"``` inserts a double quote in a string.
+```csharp
+string txt = "We are the \"Vikings\" of the North!";
+```
+
+The sequence ```\'``` inserts a single quote in the string.
+```csharp
+string txt = "It\'s alright.";
+```
+
+The sequence ```\\``` inserts a backslash in the string.
+```csharp
+string txt = "The character \\ is called backslash.";
+```
+
+**Other useful escape characters:**
+
+| **Code** | **Result** |
+|----------|------------|
+| \n       | New Line   |
+| \t       | Tab        |
+| \b       | Backspace  |
+
+
+
+[🏚️ Back to top](#contents)
+
+---
+
+### Booleans
+Very often you will need a data type that can only have two values, like:
+* YES / NO
+* ON / OFF
+* TRUE / FALSE
+
+For this, C# has a ```bool``` data type which can take the values *true* and *false*.
+
+**Boolean Values**  
+Declared with the ```bool``` keyword, can only be *true* or *false*:
+```csharp
+bool isCSharpFun = true;
+bool isFishTasty = false; // I don't agree with this! W3Schools did this!
+Console.WriteLine(isCSharpFun); // Outputs True
+Console.WriteLine(isFishTasty); // Outputs False
+```
+Boolean values are mostly used for conditional testing.
+
+**Characters**  
+The ```char``` data type is used to store a single character. Must be surrounded by single quotes.
+```csharp
+char myGrade = 'A';
+Console.WriteLine(myGrade);
+```
+
+We can use the *equal to* '==' operator to evaluate an expression:
+```csharp
+int x = 10;
+Console.WriteLine(x == 10); // Returns True because the value of x is equal to 10
+```
+```csharp
+Console.WriteLine(10 == 15); // Returns False because 10 is not equal to 15
+```
+
+**Real life example:**  
+Find out if a person is old enough to vote:  
+We use the '>=' comparison operator to find out:
+```csharp
+int myAge = 25;
+int votingAge = 18;
+Console.WriteLine(myAge >= votingAge);
+```
+
+Same but different:
+```csharp
+int myAge = 25;
+int votingAge = 18;
+
+if (myAge >= votingAge)
+{
+    Console.WriteLine("Old enough to vote!")
+}
+else
+{
+    Console.WriteLine("Not old enough to vote!")
+}
+```
+
+The boolean value of an expression is the basis for all C# comparisons and conditions.
+
+
+[🏚️ Back to top](#contents)
+
+---
+
+### If .. Else
+Knowing about comparison conditions from mathematics, you can also use these conditions to 
+perform different actions for different decisions.
+
+C# has the following conditional statements:
+* Use ```if``` to specifyy a block of code to be executed if a specified condition is true
+* Use ```else``` to specify a block of code to be executed if the same condition is false
+* Use ```else if``` to specify a new condition test if the first condition is false
+* Use ```switch``` to specify many alternative blocks of code to be executed
+
+**The if statement**  
+If condition is true.  
+Syntax:
+```csharp
+if (condition)
+{
+    // block of code to be executed if condition is True
+}
+```
+
+In the example below, we test two values to find out if 20 is greater than 18.  
+If the condition is true, print some text.
+```csharp
+if (20 > 18)
+{
+    Console.WriteLine("20 is greater than 18");
+}
+```
+
+We can also test variables:
+```csharp
+int x = 20;
+int y = 18;
+if (x > y)
+{
+    Console.WriteLine("x is greater than y.");
+}
+```
+
+**The else statement**  
+Use if condition is false.  
+Syntax:
+```csharp
+if (condition)
+{
+    // block of code to execute if condition is true
+}
+else
+{
+    // block of code to execute if condition is false
+}
+```
+Example:
+```csharp
+int time = 20;
+if (time < 18)
+{
+    Console.WriteLine("Good day.");
+}
+else
+{
+    Console.WriteLine("Good evening.")
+}
+// Outputs "Good evening."
+```
+
+**The else if statement**  
+Use ```else if``` statement to specify a new condition if the first condition is false.  
+Syntax:
+```csharp
+if (condition)
+{
+    // executed if true
+}
+else if (condition2)
+{
+    // executed if condition is false and condition2 is true
+}
+else
+{
+    // executed if condition and condition2 are both false
+}
+```
+
+Example:
+```csharp
+int time = 22;
+if (time < 10)
+{
+    Console.WriteLine("Good morning");
+}
+else if (time < 20)
+{
+    Console.WriteLine("Good day")
+}
+else
+{
+    Console.WriteLine("Good evening")
+}
+// Outputs "Good evening"
+```
+
+
+**Short Hand If ... Else**  
+The short hand of if else is known as the *ternary operator*, because it consists of three operands.  
+It can be used to replace multiple lines of code with a single line.  
+Often used to replace simple if else statements.  
+
+Syntax:
+```csharp
+variable = (condition) ? expressionTrue : expressionFalse;
+```
+
+So instead of the above (if else statement), we can do this:
+```csharp
+int time = 20;
+string result = (time < 18) ? "Good day." : "Good Evening.";
+Console.WriteLine(result);
+```
+
+
+[🏚️ Back to top](#contents)
+
+---
+
+### Switch
+Use to select one of many code blocks to be executed.  
+(Useful for practice task projects where you don't want to run ALL the code every time)
+
+Syntax:
+```csharp
+switch (expression)
+{
+    case x:
+    // code block
+    break;
+    case y:
+    // code block
+    break;
+    default:
+    // code block
+    break;
+}
+```
+
+This is how it works:
+* The ```switch``` expression is evaluated once
+* The value is compared with the values of each case
+* If there is a match, the associated block of code is executed
+
+The example below uses weekday number to calculate weekday name:
+```csharp
+int day = 4;
+switch (day) 
+{
+  case 1:
+    Console.WriteLine("Monday");
+    break;
+  case 2:
+    Console.WriteLine("Tuesday");
+    break;
+  case 3:
+    Console.WriteLine("Wednesday");
+    break;
+  case 4:
+    Console.WriteLine("Thursday");
+    break;
+  case 5:
+    Console.WriteLine("Friday");
+    break;
+  case 6:
+    Console.WriteLine("Saturday");
+    break;
+  case 7:
+    Console.WriteLine("Sunday");
+    break;
+}
+// Outputs "Thursday" (day 4)
+
+```
+
+**The break keyword**  
+When C# reaches a ```break``` keyword, it breaks out of the switch block.  
+This will stop the execution of more code and case testing inside the block.  
+When a match is found and the job is done, it's time for a break. No need to test more.
+
+A break can save a lot of execution time because it it ignores the execution of the rest of the code.
+
+
+**The default keyword**  
+The ```default``` keyword is optional and specifies some code to run if there is no match.
+
+Example:
+```csharp
+int day = 4;
+switch (day) 
+{
+  case 6:
+    Console.WriteLine("Today is Saturday.");
+    break;
+  case 7:
+    Console.WriteLine("Today is Sunday.");
+    break;
+  default:
+    Console.WriteLine("Looking forward to the Weekend.");
+    break;
+}
+// Outputs "Looking forward to the Weekend."
+```
+
+---
+
+### While Loop
+Can execute a block of code as long as a specified condition is reached.  
+Loops are handy because they save time, reduce errors and make code more readable.
+
+**While Loop**  
+The ```while``` loop loops through a block of code as long as a specified condition is ```True```.
+
+Syntax:
+```csharp
+while (condition)
+{
+    // code block to be executed
+}
+```
+
+In the below example the code will run over and over again as long as variable (i) is less than 5.
+```csharp
+int i = 0;
+while (i < 5)
+{
+    Console.WriteLine(i);
+    i++;
+}
+```
+Do not forget to increase the variable used in the condition, otherwise the loop will never end. :P
+
+
+**The Do/While Loop**  
+The ```do/while``` is a variant of the ```while````loop.  
+It will execute the block of code once before checking if the condition is true, then it will repeat
+the loop as long as the condition is true.
+
+Syntax:
+```csharp
+do
+{
+    // block of code to be executed
+}
+while (condition);
+```
+
+Below is an example. The loop will always be executed at least once, even if the condition is false,
+because the code block is executed before the condition is tested:
+```csharp
+int i = 0;
+do
+{
+    Console.WriteLine(i);
+    i++;
+}
+    while (i < 5);
+```
+Again, don't forget to increase the variable used in the condition, or get an endless loop.
+
