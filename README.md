@@ -31,6 +31,7 @@ Project created for personal use for the journey of learning C#.
   - [For Loop](#for-loop)
   - [Break and Continue](#break-and-continue)
   - [Arrays](#arrays)
+  - [Methods](#methods)
 
 ---
 
@@ -1458,3 +1459,225 @@ The example above can be read like this:
 If you compare the for loop and foreach loop, you will see that the foreach method is 
 easier to write. It does not require a counter (using the Length property), and is more readable.
 
+
+**Sort an Array**  
+Many methods available, for example Sort(), which sorts an array alphabetically or in
+ascending order.
+
+```csharp
+// sort a string
+string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+Array.Sort(cars);
+foreach (string i in cars)
+{
+  Console.WriteLine(i);
+}
+
+// sort an int
+int[] myNumbers = {5, 1, 8, 9};
+Array.Sort(myNumbers);
+foreach (int i in myNumbers)
+{
+  Console.WriteLine(i);
+}
+```
+
+
+**System.Linq Namespace**  
+Other useful methods: Min, Max, Sum, can be found in the System.Linq namespace.
+
+Example:
+```csharp
+using System;
+using System.Linq;
+
+namespace MyApplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] myNumbers = {5, 1, 8, 9};
+            Console.WriteLine(myNumbers.Max()); // returns the largest value
+            Console.WriteLine(myNumbers.Min()); // returns the smallest value
+            Console.WriteLine(myNumbers.Sum()); // returns the sum of elements
+        }
+    }
+}
+```
+And one with string interpolation for better readability:
+```csharp
+using System;
+using System.Linq;
+
+namespace MyApplication
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      int[] myNumbers = {5, 1, 8, 9};
+      Console.WriteLine($"Largest value: {myNumbers.Max()}");  // largest value
+      Console.WriteLine($"Smallest value: {myNumbers.Min()}");  // smallest value
+      Console.WriteLine($"Sum of values: {myNumbers.Sum()}");  // sum of myNumbers
+    }
+  }
+}
+```
+
+
+**Multidimensional Arrays**  
+Array = single dimension array.  
+If you want to store data as a tabular form, like a table with rows and columns, you need to get 
+familiar with *multidimensional arrays*.  
+
+A 'ma' is basically an array of arrays (list of lists?)  
+Arrays can have a number of dimensions. The most common are two-dimensional arrays (2D).
+
+**Two-Dimensional Arrays**  
+To create a 2D array, add each array within its own set of curly braces, and insert a comma inside the square brackets.
+```csharp
+int[,] numbers = { {1, 4, 2}, {3, 6, 8} };
+```
+Good to know:  
+The single comma [,] specifies that the array is two-dimensional.  
+A three-dimensional array would have two commas: int[,,]
+
+```numbers``` is now an array with two arrays as its elements. The first array element contains
+three elements: 1, 4, 2, while the second array element contains 3, 6, 8.  
+
+To visualize, think of the array as a table with rows and columns:
+
+|       | COLUMN 0 | COLUMN 1 | COLUMN 2 |
+|-------|----------|----------|----------|
+| ROW 0 | 1        | 4        | 2        |
+| ROW 1 | 3        | 6        | 8        |
+
+
+**Access Elements of a 2D Array**  
+To access an element in a 2DA you must specify two indexes: one for thearray, one for the element in the array.  
+Or better yet with the table visualization in mind: one for the row, one for the colun.
+
+This example accesses the value of the element in the first row(0) and third column(2):
+```csharp
+int[,] numbers = { {1, 4, 2}, {3, 6, 8} };
+Console.WriteLine(numbers[0, 2]); // outputs 2
+```
+Remember that: Array indexes start with 0: [0] is the first element. [1] is the second element, etc.
+
+
+**Change Elements of a 2D Array**  
+You can also change the value of an element.
+
+Example: Change value of element in first row, first column:
+```csharp
+int[,] numbers = { {1, 4, 2}, {3, 6, 8} };
+numbers[0, 0] = 5; // change value to 5
+Console.WriteLine(numbers[0, 0]); // outputs 5 instead of 1
+```
+
+
+**Loop Through a 2DA (2D Array)**  
+You can easily loop through the elements of a 2DA with a foreach loop.
+
+Example:
+```csharp
+int[,] numbers = { {1, 4, 2}, {3, 6, 8} };
+
+foreach (int i in numbers)
+{
+    Console.WriteLine(i);
+}
+```
+You can also use a for loop. For multi-dim arrays you need one loop for each of the array's dimensions.
+
+Also note that have to use GetLength() instead of Length to specify how many times the loop should run.
+
+Example:
+```csharp
+int[,] numbers = { {1, 4, 2}, {3, 6, 8} };
+
+for (int i = 0; i < numbers.GetLength(0); i++)
+{
+    for (int j = 0; j < numbers.GetLength(1); j++)
+    {
+        Console.WriteLine(numbers[i, j]);
+    }
+}
+```
+
+
+[🏚️ Back to top](#contents)
+
+---
+
+### Methods
+A *method* is a block of code which only runs when it is called (like functions in Python).  
+You can pass data, known as parameters, into a method (like functions in Python).  
+Methods are used to perform certain actions, and they are also known as *functions*.
+
+
+**Create a Method**  
+A method is defined with the of the method, followed by parentheses. C# provides some pre-defined
+methods, such as Main(), but you can create your own.
+
+Example:
+```csharp
+class Program
+{
+    static void MyMethod()
+    {
+        // code to be executed
+    }
+}
+```
+Explained:
+* ```MyMethod()``` is the name of the method
+* ```static``` means that the method belongs to the Program class and not an object of the Program class.
+* ```void``` means that this method does not have a return value
+
+Note: In C# it is good practice to start with an uppercase letter when naming methods,  
+as it makes code easier to read (PascalCase)
+
+
+**Call A Method**  
+To call (execute) a method, write the method's name followed by () and ;
+
+Example:
+```csharp
+static void MyMethod() 
+{
+  Console.WriteLine("I just got executed!");
+}
+
+static void Main(string[] args)
+{
+  MyMethod();
+}
+
+// Outputs "I just got executed!"
+```
+
+A method can be called multiple times.
+
+Example:
+```csharp
+static void MyMethod() 
+{
+  Console.WriteLine("I just got executed!");
+}
+
+static void Main(string[] args)
+{
+  MyMethod();
+  MyMethod();
+  MyMethod();
+}
+
+// I just got executed!
+// I just got executed!
+// I just got executed!
+```
+
+
+**Method Parameters**  
