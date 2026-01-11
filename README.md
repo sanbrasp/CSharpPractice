@@ -30,6 +30,7 @@ Project created for personal use for the journey of learning C#.
   - [While Loop](#while-loop)
   - [For Loop](#for-loop)
   - [Break and Continue](#break-and-continue)
+  - [Arrays](#arrays)
 
 ---
 
@@ -1261,3 +1262,199 @@ foreach (string i in cars)
 ---
 
 ### Break and Continue
+
+**Break**  
+Break can be used to break out of a ```switch``` statement, and to jump out of a loop.
+
+Example: Jumps out of loop when i is equal to 4:
+```csharp
+for (int i = 0; i < 10; i++)
+{
+    if (i == 4)
+    {
+        break;
+    }
+    Console.WriteLine(i);
+}
+```
+
+**Continue**  
+Continue statement breaks one iteration (in the loop) if a specified condition occurs, and continues
+with the next iteration in the loop.
+
+This example skips the value of 4:
+```csharp
+for (int i = 0; i < 10; i++)
+{
+    if (i == 4)
+    {
+        continue;
+    }
+    Console.WriteLine(i);
+}
+```
+
+**Break and Continue in while loop**  
+You can also use break and continue in while loops:
+
+Break example:
+```csharp
+int i = 0;
+while (i < 10)
+{
+    Console.WriteLine(i);
+    i++;
+    if (i == 4)
+    {
+        break;
+    }
+}
+```
+
+Continue example:
+```csharp
+int i = 0;
+while (i < 10)
+{
+    if (i == 4)
+    {
+        i++;
+        continue;
+    }
+    Console.WriteLine(i);
+    i++;
+}
+```
+
+
+[🏚️ Back to top](#contents)
+
+---
+
+### Arrays
+Arrays are often used to store multiple values in one single variable, instead of declaring separate
+variables for each value.
+
+To declare an array, define the variable type with *square brackets* '[]'.
+
+```csharp
+string[] cars;
+```
+We have now declared a variable that holds an array of strings.  
+To insert values into it, we can use an array literal - place the values in a comma-separated
+list, inside curly braces.
+```csharp
+string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+```
+
+To declare an array of integers, you could write:
+```csharp
+int[] myNums = {10, 20, 30, 40};
+```
+
+**Access Elements of an Array**  
+You can do this using index number.  
+
+This example accesses the value of the first element in *cars*:
+```csharp
+string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+Console.WriteLine(cars[0]);
+// Outputs "Volvo".
+```
+Indexes start at 0, not 1.
+
+
+**Change an Array Element**  
+To change the value of a specific element, refer to index number:
+```csharp
+cars[0] = "Opel";
+```
+Example:
+```csharp
+string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+cars[0] = "Opel";
+Console.WriteLine(cars[0]);
+// Now outputs Opel instead of Volvo
+```
+
+
+**Array Length**  
+To find out how many *elements* an array has, use Length property.
+
+```csharp
+string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+Console.WriteLine(cars.Length);
+// outputs 4
+```
+
+
+**Other ways to create an array**  
+Can be created using the keyword ```new```. Size can also be specified.  
+In C# there are different ways to create an array:
+```csharp
+// create an array of four elements, add values later
+string[] cars = new string[4];
+
+// create an array of four elements, add values right away
+string[] cars = new string[4] {"Volvo", "BMW", "Ford", "Mazda"};
+
+// create an array of four elements without specifying size
+string[] cars = new string[] {"Volvo", "BMW", "Ford", "Mazda"};
+
+// create an array of four elements, omitting the 'new' keyword, and without specifying size
+string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+```
+Choose what you like, but the last option is faster and easier to read for learning purposes.  
+Note: If you declare an array and initialize later, you have to use the 'new' keyword.
+
+```csharp
+// declare an array
+string[] cars;
+
+// add values, using new
+cars = new string[] {"Volvo", "BMW", "Ford", "Mazda"};
+
+// add values without using new (this will cause an error)
+cars = {"Volvo", "BMW", "Ford", "Mazda"};
+```
+
+
+**Loop Through Arrays**  
+You can loop through arrays using ```for loop``` and ```Length``` property to specify how many
+times the loop should run.
+
+Example: output all elements in cars array:
+```csharp
+string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+for (int i = 0; i < cars.Length; i++) 
+{
+  Console.WriteLine(cars[i]);
+}
+```
+
+
+**Arrays and foreach loop**  
+The ```foreach``` loop is used exclusively to loop through elements in an array.
+
+Syntax:
+```csharp
+foreach (type variableName in arrayName)
+{
+    // code block to be executed
+}
+```
+
+The following example outputs all elements in the cars array using 'foreach':
+```csharp
+string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+foreach (string i in cars)
+{
+    Console.WriteLine(i);
+}
+```
+The example above can be read like this:  
+"For each string element (i) in cars, print out the value of i."
+
+If you compare the for loop and foreach loop, you will see that the foreach method is 
+easier to write. It does not require a counter (using the Length property), and is more readable.
+
