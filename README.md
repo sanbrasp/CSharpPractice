@@ -28,6 +28,8 @@ Project created for personal use for the journey of learning C#.
   - [If ... Else](#if--else)
   - [Switch](#switch)
   - [While Loop](#while-loop)
+  - [For Loop](#for-loop)
+  - [Break and Continue](#break-and-continue)
 
 ---
 
@@ -1171,3 +1173,91 @@ do
 ```
 Again, don't forget to increase the variable used in the condition, or get an endless loop.
 
+
+[🏚️ Back to top](#contents)
+
+---
+
+### For Loop
+When you know exactly how many times you want to loop through a block of code, use the ```for``` loop
+instead of a *while* loop.
+
+Syntax:
+```csharp
+for (statement1;; statement2; statement3)
+{
+    // block of code to be executed
+}
+```
+* Statement1 is executed one time before the execution of the code block
+* Statement2 defines the condition for executing the block
+* Statement3 is executed every time after the block has been executed
+
+Example:
+```csharp
+for (int i = 0; i < 5; i++)
+{
+    Console.WriteLine(i);
+}
+```
+* Statement1 sets a variable before the loop starts (int i = 0)
+* Statement2 defines the condition for the loop to run (i must be less than 5). If the condition is true, 
+the loop will start over again, if it's false, the loop will end
+* Statement3 increases a value (i++) each time the block has been executed
+
+Another example:
+```csharp
+for (int i = 0; i < 10; i = i + 2)
+{
+    Console.WriteLine(i);
+}
+```
+
+
+**Nested Loops**  
+Placing a loop inside another loop.
+
+The inner loop will be executed one time for each iteration of the outer loop.
+
+Example:
+```csharp
+// outer loop
+for (int i = 1; i <= 2; ++i)
+{
+    Console.WriteLine("Outer: " + i); // executes 2 times
+    
+    // inner loop
+    for (int j = 1; j <= 3; j++)
+    {
+        Console.WriteLine("Inner: " + j); // executes 6 time ( 2 * 3 )
+    }
+}
+```
+
+
+**The foreach loop**  
+Used exclusively to loop through elements in an array (or other data sets).
+
+Syntax:
+```csharp
+foreach (type variableName in arrayName)
+{
+    // code block to be executed
+}
+```
+
+Example that outputs every element in cars array using foreach:
+```csharp
+string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+foreach (string i in cars)
+{
+    Console.WriteLine(i);
+}
+```
+
+
+[🏚️ Back to top](#contents)
+
+---
+
+### Break and Continue
