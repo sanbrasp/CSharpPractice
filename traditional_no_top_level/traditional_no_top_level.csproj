@@ -5,6 +5,7 @@
         <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>traditional_no_top_level</RootNamespace>
     </PropertyGroup>
 
 </Project>
