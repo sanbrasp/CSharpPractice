@@ -74,6 +74,37 @@ Lots and lots of reading:
 Large repo with many .gitignore templates:  
 [Gitignore Templates](https://github.com/github/gitignore/blob/main/VisualStudio.gitignore)
 
+**Video Resources**  
+[Hello World](https://www.youtube.com/watch?v=HFLALzkcjLM&t=1s)  
+[C# Basics](https://www.youtube.com/watch?v=Z3EpnGi52tE)  
+[C For Beginners](https://www.youtube.com/watch?v=cUOW-uxpMv8)  
+[Switch Expressions in C#](https://www.youtube.com/watch?v=kZwIaEAdF0I)  
+[If Else If Else If Else...](https://www.youtube.com/watch?v=-gaHEplnZ8c&t=1s)  
+[C# For Loops](https://www.youtube.com/watch?v=-gaHEplnZ8c&t=1s)  
+[C# While Loops](https://www.youtube.com/watch?v=EyghyKO4BlA)  
+[Class, Struct, Record - Which to Choose?](https://www.youtube.com/watch?v=HAybBV-A1Gg)  
+[Classes and Structs in C#](https://www.youtube.com/watch?v=e7D8cyfYp0k)  
+[Field and Property](https://www.youtube.com/watch?v=UyS3ppdT8I4)  
+[Scripting with File Execution](https://www.youtube.com/watch?v=2i0MJDHvJq0&t=1s)  
+[Field Keyword](https://www.youtube.com/watch?v=_Z551_SKHA4)  
+
+Agile Methodology:  
+https://www.youtube.com/watch?v=8eVXTyIZ1Hs  
+Lean Manufacturing:  
+https://www.youtube.com/watch?v=xkUjX_c32c8&t=25s  
+Waterfall Model:  
+https://www.youtube.com/watch?v=bNLcRdrSQAU
+
+**More Reading**  
+[Reference Types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/reference-types)  
+[Built-in Reference Types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types)  
+[Records](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record)  
+[Class](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/class)  
+[Interface](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface)  
+[Nullable Reference Types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-reference-types)  
+[Collections](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/collections)
+
+---
 
 [🏚️ Back to top](#contents)
 
@@ -157,14 +188,18 @@ Examples:
 * protected virtual void OnStatusChanged() { raise event }
 
 
+---
 
 [🏚️ Back to top](#contents)
 
 ---
 
 ### Main
-Main is the entrypoint that executes your code in traditional C# programming.
+Main is the entrypoint that executes your code in traditional C# programming.  
+In traditional C# Programming this is where the program starts when you ```dotnet run``` it.  
+Everything inside Main will run.
 
+---
 
 [🏚️ Back to top](#contents)
 
@@ -251,6 +286,8 @@ char myLetter = 'D';
 bool myBool = true;
 string myText = "Hello World"
 ```
+
+---
 
 [🏚️ Back to top](#contents)
 
@@ -354,6 +391,7 @@ string greeting = "Hello World!";
 Console.WriteLine(greeting);
 ```
 
+---
 
 [🏚️ Back to top](#contents)
 
@@ -365,10 +403,10 @@ Type casting is when you assign a value of one data type to another type.
 
 In C# there are two types of casting:
 
-* Implicit Casting - Automatic, converting a smaller type to a larger type size
+* Implicit Casting - Automatic, converting a ```smaller type to a larger type``` size
 >char -> int -> long -> float -> double
 
-* Explicit Casting - Manual, converting a larger type to a smaller type size
+* Explicit Casting - Manual, converting a ```larger type to a smaller type``` size
 >double -> float -> long -> int -> char
 
 
@@ -411,6 +449,8 @@ Console.WriteLine(Convert.ToDouble(myInt)); // Convert int to double
 Console.WriteLine(Convert.ToInt32(myDouble)); // Convert double to int
 Console.WriteLine(Convert.ToString(myBool)); // Convert bool to string
 ```
+
+---
 
 
 [🏚️ Back to top](#contents)
@@ -461,6 +501,8 @@ x = y = z = 50;
 Console.WriteLine(x + y + z);
 ```
 
+---
+
 [🏚️ Back to top](#contents)
 
 ---
@@ -496,6 +538,8 @@ int m = 60;
 
 * Reserved words (like C# keywords, such as int or double) cannot be used as names
 
+
+---
 
 [🏚️ Back to top](#contents)
 
@@ -836,6 +880,7 @@ string txt = "The character \\ is called backslash.";
 | \b       | Backspace  |
 
 
+---
 
 [🏚️ Back to top](#contents)
 
@@ -901,6 +946,8 @@ else
 
 The boolean value of an expression is the basis for all C# comparisons and conditions.
 
+
+---
 
 [🏚️ Back to top](#contents)
 
@@ -1026,6 +1073,7 @@ string result = (time < 18) ? "Good day." : "Good Evening.";
 Console.WriteLine(result);
 ```
 
+---
 
 [🏚️ Back to top](#contents)
 
@@ -1041,13 +1089,13 @@ switch (expression)
 {
     case x:
     // code block
-    break;
+        break;
     case y:
     // code block
-    break;
+        break;
     default:
     // code block
-    break;
+        break;
 }
 ```
 
@@ -1118,6 +1166,10 @@ switch (day)
 
 ---
 
+[🏚️ Back to top](#contents)
+
+---
+
 ### While Loop
 Can execute a block of code as long as a specified condition is reached.  
 Loops are handy because they save time, reduce errors and make code more readable.
@@ -1172,6 +1224,8 @@ do
 ```
 Again, don't forget to increase the variable used in the condition, or get an endless loop.
 
+
+---
 
 [🏚️ Back to top](#contents)
 
@@ -1254,6 +1308,8 @@ foreach (string i in cars)
 }
 ```
 
+---
+
 
 [🏚️ Back to top](#contents)
 
@@ -1323,6 +1379,9 @@ while (i < 10)
     i++;
 }
 ```
+
+
+---
 
 
 [🏚️ Back to top](#contents)
@@ -1604,6 +1663,8 @@ for (int i = 0; i < numbers.GetLength(0); i++)
 ```
 
 
+---
+
 [🏚️ Back to top](#contents)
 
 ---
@@ -1678,3 +1739,460 @@ static void Main(string[] args)
 
 
 **Method Parameters**  
+Info can be passed to methods as ```parameters```. Parameters act like variables inside 
+the method.  
+They are specified after the method name, inside the parenthesis. You can add as many as
+you want and separate them with commas.
+
+Following example has a method that takes a string called ```fname``` as parameter.  
+When the method is called, we pass along a first name, which is used inside the
+method to print the full name:
+```csharp
+static void MyMethod(string fname)
+{
+    Console.WriteLine(fname + " Refsnes");
+}
+static void Main(string[] args)
+{
+    MyMethod("Liam");
+    MyMethod("Jenny");
+    MyMethod("Ada");
+}
+
+// Output:
+// Liam Refsnes
+// Jenny Refsnes
+// Ada Refsnes
+```
+
+When a parameter is passed to the method, it is called an ```argument```.  
+In the example above, ```fname``` is a parameter, while ```Liam, Jenny, Ada```
+are arguments.
+
+
+**Multiple Arguments**  
+Separated by commas. Have as many as you want.
+```csharp
+static void MyMethod(string fname, int age)
+{
+    Console.WriteLine(fname + " is " + age");
+}
+static void Main(string[] args)
+{
+    MyMethod("Liam", 5);
+    MyMethod("Jenny", 8);
+    MyMethod("Ada", 211);
+}
+
+// Output:
+// Liam is 5
+// Jenny is 8
+// Ada is 211
+```
+
+**Default Parameter Value**  
+Default value using equals sign (=).  
+If we call a method without argument, it defaults.
+```csharp
+static void MyMethod(string country = "Norway") 
+{
+  Console.WriteLine(country);
+}
+
+static void Main(string[] args)
+{
+  MyMethod("Sweden");
+  MyMethod("India");
+  MyMethod();
+  MyMethod("USA");
+}
+
+// Sweden
+// India
+// Norway
+// USA
+```
+
+**Return Values**  
+In the examples we've used the ```void``` keyword which indicates that the method
+should not return a value.  
+If we want it to return a value, we can use a ```primitive data type``` such as int or double
+instead of void, and use ```return``` keyword inside the method.
+```csharp
+static int MyMethod(int x) 
+{
+  return 5 + x;
+}
+
+static void Main(string[] args)
+{
+  Console.WriteLine(MyMethod(3));
+}
+
+// Outputs 8 (5 + 3)
+```
+Example returning the sum of two parameters:
+```csharp
+static int MyMethod(int x, int y) 
+{
+  return x + y;
+}
+
+static void Main(string[] args)
+{
+  Console.WriteLine(MyMethod(5, 3));
+}
+
+// Outputs 8 (5 + 3)
+```
+Results can of course also be stored in a variable, which is recommended because it is
+easier to read and maintain.
+```csharp
+static int MyMethod(int x, int y) 
+{
+  return x + y;
+}
+
+static void Main(string[] args)
+{
+  int z = MyMethod(5, 3);
+  Console.WriteLine(z);
+}
+
+// Outputs 8 (5 + 3)
+```
+
+**Named Arguments**  
+Arguments with key: value syntax.  
+Order does not matter this way.
+```csharp
+static void MyMethod(string child1, string child2, string child3) 
+{
+  Console.WriteLine("The youngest child is: " + child3);
+}
+
+static void Main(string[] args)
+{
+  MyMethod(child3: "John", child1: "Liam", child2: "Liam");
+}
+
+// The youngest child is: John
+```
+
+
+**Method Overloading**  
+Multiple methods can have the same name with different parameters.
+Example:
+```csharp
+int MyMethod(int x)
+float MyMethod(float x)
+double MyMethod(double x, double y)
+```
+
+The following example has two methods that add numbers of different types:
+```csharp
+static int PlusMethodInt(int x, int y)
+{
+  return x + y;
+}
+
+static double PlusMethodDouble(double x, double y)
+{
+  return x + y;
+}
+
+static void Main(string[] args)
+{
+  int myNum1 = PlusMethodInt(8, 5);
+  double myNum2 = PlusMethodDouble(4.3, 6.26);
+  Console.WriteLine("Int: " + myNum1);
+  Console.WriteLine("Double: " + myNum2);
+}
+```
+
+Instead of defining two methods that should do the same thing, it is better to overload one.  
+In the example below we overload the PlusMethod method to work for both int and double.
+
+```csharp
+static int PlusMethod(int x, int y)
+{
+  return x + y;
+}
+
+static double PlusMethod(double x, double y)
+{
+  return x + y;
+}
+
+static void Main(string[] args)
+{
+  int myNum1 = PlusMethod(8, 5);
+  double myNum2 = PlusMethod(4.3, 6.26);
+  Console.WriteLine("Int: " + myNum1);
+  Console.WriteLine("Double: " + myNum2);
+}
+```
+Multiple methods can have the same name as long as the number and/or type of parameters are different.
+
+---
+
+[🏚️ Back to top](#contents)
+
+---
+
+### Classes
+
+**OOP**  
+Object-Oriented Programming.  
+```Procedural Programming``` is about writing procedures or methods that perform operations on data,
+while ```Object-Oriented Programming``` is about creating objects that contain both ```data and methods```.
+
+OOP has several advantages over procedural programming:
+- faster
+- clear structure for programs
+- helps keep the C# code DRY
+- easier to maintain
+- easier to modify
+- easier to debug
+- create full reusable applications with less code and shorter dev time
+
+GeeksForGeeks:  
+[Read about the DRY Principle](https://www.geeksforgeeks.org/software-engineering/dont-repeat-yourselfdry-in-software-development/)
+
+**What are classes and objects?**  
+Classes and objects are the two main aspects of OOP.
+
+An example of a class could be Fruit.  
+An object of said class could be Apple.
+
+The class is a template for the objects.  
+The objects are instances of a class.
+
+**Classes and Objects**  
+Everything in C# is associated with classes and objects, along with its 
+attributes and methods.  
+A real life example could be Car (class). It has ```attributes``` such as weight and color,
+and ```methods``` such as Drive and Brake.
+
+Example:
+```csharp
+class Car
+{
+    string color = "red";
+}
+```
+When a variable is declared directly in the class, it is often referred to as a ```field```, 
+or ```attribute```.  
+It is not required, but it's good practice to start with Uppercase first letter when naming
+classes. Also, it is common that the name of the C# file and the class matches,
+as it makes the code more organized. It is, however, not required, like in Java.
+
+
+**Create an Object**  
+We have the class ```Car```. Now we create some objects.
+```csharp
+class Car
+{
+    string color = "red";
+    
+    static void Main(string[] args)
+    {
+        Car myCar = new Car();
+        Console.WriteLine(myCar.color);
+    }
+}
+```
+Note that we use the dot (.) syntax to access variables/fields inside a class.  
+```myCar.color```.
+
+
+**Multiple Objects**  
+Let's create some more objects:
+```csharp
+class Car
+{
+  string color = "red";
+  static void Main(string[] args)
+  {
+    Car myCar1 = new Car();
+    Car myCar2 = new Car();
+    Console.WriteLine(myCar1.color);
+    Console.WriteLine(myCar2.color);
+  }
+}
+```
+
+**Using multiple classes**  
+You can also create an object of a class and access it in another class.  
+This is often used for better organization of classes (one class has all the fields and methods
+while the other holds the Main() method (code to be executed))
+* prog.cs
+* prog2.cs
+
+```csharp
+// prog2.cs
+class Car
+{
+    public string color = "red";
+}
+```
+
+```csharp
+// prog.cs
+class Program
+{
+    static void Main(string[] args)
+    {
+        Car myCar = new Car();
+        Console.WriteLine(myCar.color);
+    }
+}
+```
+Note that ```string color = "red"``` is now set to public.  
+This is called an ```access modifier```, which specifies that the ```color```
+variable/field of ```Car``` is accessible for other classes as well, such as Program.
+
+
+**Class Members**  
+Fields and methods inside classes are often referred to as ```Class Members```.
+
+Example:
+```csharp
+class MyClass
+{
+    // Class members
+    string color = "red";
+    int maxSpeed = 200;
+    
+    public void fullThrottle()
+    {
+        Console.WriteLine("The car is going as fast as it can.")
+    }
+}
+```
+
+**Fields**  
+Example:  
+We create an object of the Car class and print out the fields color and maxSpeed.
+```csharp
+class Car
+{
+    string color = "red";
+    int maxSpeed = 200;
+    
+    static void Main(string[] args)
+    {
+        Car myCar = new Car();
+        Console.WriteLine(myCar.color);
+        Console.WriteLine(myCar.maxSpeed);
+    }
+}
+```
+You can also leave the fields empty and modify them when creating the object:
+```csharp
+class Car 
+{
+  string color;
+  int maxSpeed;
+
+  static void Main(string[] args)
+  {
+      Car myCar = new Car();
+      myCar.color = "red";
+      myCar.maxSpeed = 200;
+      Console.WriteLine(myCar.color);
+      Console.WriteLine(myCar.maxSpeed);
+```
+This is especially useful when creating multiple objects of one class:
+```csharp
+class Car 
+{
+  string model;
+  string color;
+  int year;
+
+  static void Main(string[] args)
+  {
+    Car Ford = new Car();
+    Ford.model = "Mustang";
+    Ford.color = "red";
+    Ford.year = 1969;
+
+    Car Opel = new Car();
+    Opel.model = "Astra";
+    Opel.color = "white";
+    Opel.year = 2005;
+
+    Console.WriteLine(Ford.model);
+    Console.WriteLine(Opel.model);
+  }
+}
+```
+
+
+**Object Methods**  
+Methods normally belong to a class, and they define how an object behaves.  
+Just like with fields you can access methods with the dot syntax.  
+However, note that the method *must* be ```public```, and remember that 
+we use the name of the method followed by two parentheses () and a   
+semicolon ; to call the method.
+```csharp
+class Car 
+{
+  string color;                 // field
+  int maxSpeed;                 // field
+  public void fullThrottle()    // method
+  {
+    Console.WriteLine("The car is going as fast as it can!"); 
+  }
+
+  static void Main(string[] args)
+  {
+    Car myObj = new Car();
+    myObj.fullThrottle();  // Call the method
+  }
+}
+```
+A static method can be accessed without creating an object of the class, while public methods can
+only be accessed by objects.
+
+
+**Use Multiple Classes**  
+Better organization (one for fields and methods, one for Main):
+```csharp
+// prog2.cs
+class Car 
+{
+  public string model;
+  public string color;
+  public int year;
+  public void fullThrottle()
+  {
+    Console.WriteLine("The car is going as fast as it can!"); 
+  }
+}
+
+```
+```csharp
+// prog.cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Car Ford = new Car();
+    Ford.model = "Mustang";
+    Ford.color = "red";
+    Ford.year = 1969;
+
+    Car Opel = new Car();
+    Opel.model = "Astra";
+    Opel.color = "white";
+    Opel.year = 2005;
+
+    Console.WriteLine(Ford.model);
+    Console.WriteLine(Opel.model);
+  }
+}
+```
+
+**Constructors**
