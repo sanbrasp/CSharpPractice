@@ -1,5 +1,5 @@
 # Traditional C#
-Practice lessons not using top-level statements but the traditional way.
+Practice lessons not using top-level statements.
 
 ## ITask and MenuService
 Implemented mini-framework (ITask, MenuService) and rewritten to fit from another project.  
