@@ -59,13 +59,6 @@ The practice lessons in the two projects are AI generated, while the notes from 
 are read and written based on W3Schools. I decided to not add the practice lessons from W3Schools because they are so
 many, and available for free for anyone who wishes to do them.
 
-Implemented mini-framework (ITask, MenuService) and rewritten to fit from another project.  
-It auto-discovers tasks if they follow the correct template and adds them to a menu when  
-the program runs.  
-[ITask](traditional_no_top_level/Menu/ITask.cs)  
-[MenuService](traditional_no_top_level/Menu/MenuService.cs)
-
-
 
 [🏚️ Back to top](#contents)
 
