@@ -4,7 +4,7 @@ namespace traditional_no_top_level;
 
 public class InputOutput : ITask
 {
-    public string Title => "Input / Output";
+    public string Title => "Input / Output - String";
     public string Description => "Reads string input and prints it back to console.";
     public string Subject => "Input/Output";
     public int Number => 1;
