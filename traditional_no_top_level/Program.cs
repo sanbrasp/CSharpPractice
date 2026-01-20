@@ -1,41 +1,29 @@
-﻿using System;
+﻿using System.Text;
+using traditional_no_top_level.Menu;
 
 namespace traditional_no_top_level;
 
-internal class Program
+public static class Program
 {
     static void Main(string[] args)
     {
-        // Choose lesson via args (1 - 5) or hardcode selection
-        Console.WriteLine("Choose lesson: 1 or 5 (Traditional C#)");
-        Console.Write("Enter a choice: ");
-        var choice = Console.ReadLine();
-
-        switch (choice)
+        // Make console output looks nice and handle Unicode
+        Console.Title = "C# Practice - Subject Menu";
+        Console.OutputEncoding = Encoding.UTF8;
+        
+        // Global safety net for unexpected crashes
+        AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
         {
-            case "1":
-                Lesson1.Run();
-                break;
-
-            case "2":
-                Lesson2.Run();
-                break;
-            
-            case "3":
-                Lesson3.Run();
-                break;
-            
-            case "4":
-                Lesson4.Run();
-                break;
-            
-            case "5":
-                Lesson5.Run();
-                break;
-
-            default:
-                Console.WriteLine("Invalid choice");
-                break;
-        }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\nAn unexpected error occurred: ");
+            Console.ResetColor();
+            Console.WriteLine(e.ExceptionObject?.ToString() ?? "(no exceptoin info");
+            Console.WriteLine("\nPress any key to exit...");
+            Console.ReadKey(true);
+        };
+        
+        // Start the menu loop that discovers ITask implements and runs them
+        var menu = new MenuService();
+        menu.ShowMainLoop();
     }
 }
