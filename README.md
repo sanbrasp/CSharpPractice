@@ -55,12 +55,16 @@ Top-Level Statements
 To start with I will be focusing on learning traditional, and I am aware that something isn't working  
 in Program.cs of "top_level_statements" project - I will get to that.
 
-~~I realize I will need most practice figuring out traditional, which is why I decided to focus on that first.~~
-It appears I might have fixed this now.
-
 The practice lessons in the two projects are AI generated, while the notes from the main project README.md (this file)
 are read and written based on W3Schools. I decided to not add the practice lessons from W3Schools because they are so
 many, and available for free for anyone who wishes to do them.
+
+Implemented mini-framework (ITask, MenuService) and rewritten to fit from another project.  
+It auto-discovers tasks if they follow the correct template and adds them to a menu when  
+the program runs.  
+[ITask](traditional_no_top_level/Menu/ITask.cs)  
+[MenuService](traditional_no_top_level/Menu/MenuService.cs)
+
 
 
 [🏚️ Back to top](#contents)
