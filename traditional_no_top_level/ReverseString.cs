@@ -7,7 +7,7 @@ public class ReverseString : ITask
     public string Title => "Reverse String";
     public string Description => "Reads a string from console and prints the reverse.";
     public string Subject => "Strings";
-    public int Number => 1;
+    public int Number => 2;
     
     public void Run()
     {
