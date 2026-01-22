@@ -32,6 +32,7 @@ Project created for personal use for the journey of learning C#.
   - [Break and Continue](#break-and-continue)
   - [Arrays](#arrays)
   - [Methods](#methods)
+  - [Recommended Class Member Order](#recommended-class-member-order)
 
 ---
 
@@ -2195,4 +2196,405 @@ class Program
 }
 ```
 
-**Constructors**
+**Constructors**  
+A constructor is a special method that is used to initialize objects. The advantage of a constructor
+is that it is called when an object of a class is created.  
+It can be used to set initial values for fields.
+
+Example with no properties, just field and constructor:
+```csharp
+// Create a Car class
+class Car
+{ 
+  // Create a field
+  public string model;
+
+  // Create a class constructor for the Car class
+  public Car()
+  {
+    model = "Mustang"; // Set the initial value for model
+  }
+
+  static void Main(string[] args)
+  {
+    Car Ford = new Car();  // Create an object of the Car Class (this will call the constructor)
+    Console.WriteLine(Ford.model);  // Print the value of model
+  }
+}
+
+// Outputs "Mustang"
+```
+
+A constructor name must match the class name, and cannot have a return type like void, string, etc.
+Also note that the constructor is called when the object is created.  
+All classes have constructors by default.  
+If you do not create a class constructor yourself, C# creates one for you. However, then you are not able to set 
+initial values for fields.  
+*Constructors save time!*
+
+
+**Constructor Parameters**  
+Constructors can take parameters, used to initialize fields.  
+
+Example: adds a string modelName param to the constructor:
+```csharp
+class Car
+{
+  public string model;
+
+  // Create a class constructor with a parameter
+  public Car(string modelName)
+  {
+    model = modelName;
+  }
+
+  static void Main(string[] args)
+  {
+    Car Ford = new Car("Mustang");
+    Console.WriteLine(Ford.model);
+  }
+}
+
+// Outputs "Mustang"
+```
+You can have as many parameters as you want.
+
+Another example:
+```csharp
+class Car
+{
+  // Fields:
+  public string model;
+  public string color;
+  public int year;
+  
+  // No properties
+  
+  // Create a class constructor with multiple parameters
+  public Car(string modelName, string modelColor, int modelYear)
+  {
+    model = modelName;
+    color = modelColor;
+    year = modelYear;
+  }
+
+  static void Main(string[] args)
+  {
+    Car Ford = new Car("Mustang", "Red", 1969);
+    Console.WriteLine(Ford.color + " " + Ford.year + " " + Ford.model);
+  }
+}
+
+
+// Outputs Red 1969 Mustang
+```
+
+Constructors can also be overloaded, just like other methods, by using different numbers of params.
+
+
+**Constructors Save Time**  
+- Very useful.
+- Reduce amount of code.
+
+*Without Constructor*:
+```csharp
+class Program
+{
+  static void Main(string[] args)
+  {
+    Car Ford = new Car();
+    Ford.model = "Mustang";
+    Ford.color = "red";
+    Ford.year = 1969;
+
+    Car Opel = new Car();
+    Opel.model = "Astra";
+    Opel.color = "white";
+    Opel.year = 2005;
+
+    Console.WriteLine(Ford.model);
+    Console.WriteLine(Opel.model);
+  }
+}
+```
+
+*With Constructor:*
+```csharp
+class Program
+{
+  static void Main(string[] args)
+  {
+    Car Ford = new Car("Mustang", "Red", 1969);
+    Car Opel = new Car("Astra", "White", 2005);
+
+    Console.WriteLine(Ford.model);
+    Console.WriteLine(Opel.model);
+  }
+}
+```
+
+---
+
+[🏚️ Back to top](#contents)
+
+---
+
+## Recommended Class Member Order
+(Asked AI for an example with explanations)
+
+**Recommended Order**
+1. Usings / Namespace
+2. Class declaration
+3. Constants (public - protected - private)
+4. Static fields / properties
+5. Instance fields (aka Backing fields)
+6. Constructors (static - public - other)
+7. Properties (public - protected - private)
+8. Methods (public - protected - private)
+9. Operators / indexers / events
+10. Nested types
+
+No compiler requirement - just for style and readability.
+
+Beginner friendly example:
+```csharp
+using System;
+
+namespace BasicsDemo
+{
+    public class Person
+    {
+        // Field (private), naming convention: _camelCase
+        private int _age;
+        
+        // Property (public), auto: compiler generates hidden backing field
+        public string Name { get; set; }
+        
+        // Constructor, runs when you initiate the object (create it)
+        public Person(string name, int age)
+        {
+            Name = name;
+            _age = age;
+        }
+        
+        // Method (public), behavior of the class
+        public void Greet()
+        {
+            Console.WriteLine($"Hello, my name is {Name} and I am {_age} years old.")
+        }
+    }
+}
+```
+
+**Field Syntax**  
+>type name;
+- Is a variable that lives in the class, raw storage, direct storage
+
+**Property Syntax**  
+>type Name { get; set; }
+- Has an accessor block with get/set, exposes a value (often a field) with controlled access
+
+
+Messy chaos example but fuller, with comments:
+```csharp
+
+using System;
+using System.Collections.Generic;
+
+namespace TraditionalExample
+{
+    /// <summary>
+    /// Represents a simple bank account with an owner, an account number,
+    /// a balance, and a transaction log. Demonstrates fields, properties,
+    /// constructors, and methods with conventional layout.
+    /// </summary>
+    public class BankAccount
+    {
+        // ==============================
+        // 1) CONSTANTS
+        // ==============================
+        // Constants are compile-time values that never change.
+        // Convention: PascalCase, often public if they're part of the API surface.
+        public const decimal DefaultOpeningBonus = 50m;
+
+        // ==============================
+        // 2) STATIC FIELDS / PROPERTIES
+        // ==============================
+        // Static members belong to the TYPE, not to an instance.
+        // Typical uses: caches, configuration, counters, factories.
+        private static int _lastIssuedAccountNumber = 100000; // private static field
+
+        /// <summary>
+        /// Example of a static property. Read-only to callers.
+        /// </summary>
+        public static int IssuedAccountCount => _lastIssuedAccountNumber - 100000;
+
+        // Optional static constructor: runs once per type, before first use.
+        static BankAccount()
+        {
+            // You could load static configuration here if needed.
+            // (Intentionally empty for demonstration.)
+        }
+
+        // ==============================
+        // 3) INSTANCE FIELDS (BACKING FIELDS)
+        // ==============================
+        // Fields store raw data. Keep them private; expose via properties.
+        // Convention: private fields use _camelCase with a leading underscore.
+        private readonly List<string> _transactions = new(); // readonly: set once, then not reassigned
+        private string _ownerName;                            // backing field for a property with validation
+
+        // ==============================
+        // 4) CONSTRUCTORS
+        // ==============================
+        // Constructors create and initialize instances.
+        // Prefer to do minimal work and validate inputs here.
+
+        /// <summary>
+        /// Primary constructor taking required values.
+        /// </summary>
+        public BankAccount(string ownerName, decimal initialDeposit = 0m)
+        {
+            // Generate a unique account number (simple demo).
+            AccountNumber = ++_lastIssuedAccountNumber;
+
+            // Use the property to leverage validation logic.
+            OwnerName = ownerName;
+
+            // Validate initial state.
+            if (initialDeposit < 0)
+                throw new ArgumentOutOfRangeException(nameof(initialDeposit), "Initial deposit cannot be negative.");
+
+            Balance = initialDeposit;
+
+            if (initialDeposit > 0)
+            {
+                _transactions.Add($"Opened with initial deposit: {initialDeposit:C}");
+            }
+        }
+
+        /// <summary>
+        /// Convenience constructor that applies the default opening bonus.
+        /// Constructor chaining: reuses the primary constructor.
+        /// </summary>
+        public BankAccount(string ownerName, bool applyOpeningBonus)
+            : this(ownerName, applyOpeningBonus ? DefaultOpeningBonus : 0m)
+        {
+        }
+
+        // ==============================
+        // 5) PROPERTIES
+        // ==============================
+        // Properties provide controlled access to data with optional validation.
+        // Prefer properties over public fields.
+
+        /// <summary>
+        /// Example of an auto-property with a private setter (immutable to consumers).
+        /// </summary>
+        public int AccountNumber { get; private set; }
+
+        /// <summary>
+        /// Property with a backing field, allowing validation in the setter.
+        /// </summary>
+        public string OwnerName
+        {
+            get => _ownerName;
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentException("Owner name cannot be empty.", nameof(value));
+                _ownerName = value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Read-only property: only the class can change the number; consumers can only read it.
+        /// Using a private setter keeps business rules inside the class.
+        /// </summary>
+        public decimal Balance { get; private set; }
+
+        /// <summary>
+        /// Expression-bodied property (computed). Not stored—calculated on demand.
+        /// </summary>
+        public bool IsOverdrawn => Balance < 0;
+
+        // ==============================
+        // 6) METHODS
+        // ==============================
+        // Methods perform actions or calculations.
+
+        /// <summary>
+        /// Deposit money into the account. Throws on invalid amounts.
+        /// </summary>
+        public void Deposit(decimal amount, string note = "Deposit")
+        {
+            if (amount <= 0)
+                throw new ArgumentOutOfRangeException(nameof(amount), "Deposit amount must be positive.");
+
+            Balance += amount;
+            _transactions.Add($"{note}: +{amount:C} | New balance: {Balance:C}");
+        }
+
+        /// <summary>
+        /// Withdraw money from the account if funds are sufficient (simple rule).
+        /// Returns true if the withdrawal succeeded; otherwise false.
+        /// </summary>
+        public bool TryWithdraw(decimal amount, string note = "Withdrawal")
+        {
+            if (amount <= 0)
+                throw new ArgumentOutOfRangeException(nameof(amount), "Withdrawal amount must be positive.");
+
+            if (Balance - amount < 0)
+            {
+                // Business rule: do not allow overdraft in this simple account.
+                _transactions.Add($"Failed {note}: -{amount:C} | Balance unchanged: {Balance:C}");
+                return false;
+            }
+
+            Balance -= amount;
+            _transactions.Add($"{note}: -{amount:C} | New balance: {Balance:C}");
+            return true;
+        }
+
+        /// <summary>
+        /// Transfers money to another account using two operations:
+        /// a withdrawal here and a deposit there. Throws if the withdraw fails.
+        /// </summary>
+        public void TransferTo(BankAccount destination, decimal amount)
+        {
+            if (destination is null)
+                throw new ArgumentNullException(nameof(destination));
+            if (!TryWithdraw(amount, note: $"Transfer to #{destination.AccountNumber}"))
+                throw new InvalidOperationException("Insufficient funds for transfer.");
+
+            destination.Deposit(amount, note: $"Transfer from #{AccountNumber}");
+        }
+
+        /// <summary>
+        /// Returns a snapshot of the transaction history as a new list
+        /// to prevent callers from mutating the internal list.
+        /// </summary>
+        public List<string> GetTransactions()
+        {
+            return new List<string>(_transactions);
+        }
+
+        /// <summary>
+        /// Example of a static factory method: creates an account with bonus.
+        /// </summary>
+        public static BankAccount CreateWithBonus(string ownerName, decimal bonus = DefaultOpeningBonus)
+        {
+            return new BankAccount(ownerName, initialDeposit: bonus);
+        }
+
+        /// <summary>
+        /// Override ToString for debugging/logging readability.
+        /// </summary>
+        public override string ToString()
+        {
+            return $"#{AccountNumber} | Owner: {OwnerName} | Balance: {Balance:C}";
+        }
+    }
+}
+
+```
