@@ -2333,6 +2333,104 @@ class Program
 }
 ```
 
+**Access Modifiers**  
+The keyword ```public``` is an access modifiers.  
+They are used to set access level/visibility for classes, fields, methods 
+and properties.  
+There are several types.  
+
+| **Modifier** | **Description**                                                             |
+|--------------|-----------------------------------------------------------------------------|
+| public       | Code is accessible for all classes                                          |
+| private      | Code is only accessible within the same class                               |
+| protected    | Code is accessible within the same class, or a class that inherits from it  |
+| internal     | Code is accessible within its own assembly, but not others                  |
+
+There is two combinations:
+- protected internal
+- private protected
+
+**Private Modifiers**  
+If you declare a field with a ```private``` access modifier, it can only  
+be accessed within the same class.  
+Example:
+```csharp
+class Car
+{
+  private string model = "Mustang";
+
+  static void Main(string[] args)
+  {
+    Car myObj = new Car();
+    Console.WriteLine(myObj.model);
+  }
+}
+```
+
+If you try to access it outside the class, an error will occur:
+```csharp
+class Car
+{
+  private string model = "Mustang";
+}
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    Car myObj = new Car();
+    Console.WriteLine(myObj.model);
+  }
+}
+```
+>'Car.model' is inaccessible due to its protection level
+The field 'Car.model' is assigned but its value is never used
+
+
+**Public Modifier**  
+If you declare a field ```public``` it is accessible for all classes:
+```csharp
+class Car
+{
+  public string model = "Mustang";
+}
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    Car myObj = new Car();
+    Console.WriteLine(myObj.model);
+  }
+}
+```
+
+*Why access modifiers?*  
+To control the visibility of class members (security level of each individual
+class member).  
+To achieve ```encapsulation``` - the process of making sure that 'sensitive' data is 
+hidden from users. This is done by declaring fields as ```private```.
+
+By default, all members of a class are ```private``` if you don't specify an access modifier.
+
+```csharp
+class Car
+{
+  string model;  // private
+  string year;   // private
+}
+```
+
+**Properties**  
+!
+
+
+
+
+---
+
+[🏚️ Back to top](#contents)
+
 ---
 
 [🏚️ Back to top](#contents)
