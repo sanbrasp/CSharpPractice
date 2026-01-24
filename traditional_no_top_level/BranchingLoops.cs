@@ -1,6 +1,5 @@
 ﻿using traditional_no_top_level.Helpers;
 using traditional_no_top_level.Menu;
-using traditional_no_top_level.Menu;
 
 namespace traditional_no_top_level;
 
