@@ -1935,501 +1935,6 @@ static void Main(string[] args)
 ```
 Multiple methods can have the same name as long as the number and/or type of parameters are different.
 
----
-
-[🏚️ Back to top](#contents)
-
----
-
-### Classes
-
-**OOP**  
-Object-Oriented Programming.  
-```Procedural Programming``` is about writing procedures or methods that perform operations on data,
-while ```Object-Oriented Programming``` is about creating objects that contain both ```data and methods```.
-
-OOP has several advantages over procedural programming:
-- faster
-- clear structure for programs
-- helps keep the C# code DRY
-- easier to maintain
-- easier to modify
-- easier to debug
-- create full reusable applications with less code and shorter dev time
-
-GeeksForGeeks:  
-[Read about the DRY Principle](https://www.geeksforgeeks.org/software-engineering/dont-repeat-yourselfdry-in-software-development/)
-
-**What are classes and objects?**  
-Classes and objects are the two main aspects of OOP.
-
-An example of a class could be Fruit.  
-An object of said class could be Apple.
-
-The class is a template for the objects.  
-The objects are instances of a class.
-
-**Classes and Objects**  
-Everything in C# is associated with classes and objects, along with its 
-attributes and methods.  
-A real life example could be Car (class). It has ```attributes``` such as weight and color,
-and ```methods``` such as Drive and Brake.
-
-Example:
-```csharp
-class Car
-{
-    string color = "red";
-}
-```
-When a variable is declared directly in the class, it is often referred to as a ```field```, 
-or ```attribute```.  
-It is not required, but it's good practice to start with Uppercase first letter when naming
-classes. Also, it is common that the name of the C# file and the class matches,
-as it makes the code more organized. It is, however, not required, like in Java.
-
-
-**Create an Object**  
-We have the class ```Car```. Now we create some objects.
-```csharp
-class Car
-{
-    string color = "red";
-    
-    static void Main(string[] args)
-    {
-        Car myCar = new Car();
-        Console.WriteLine(myCar.color);
-    }
-}
-```
-Note that we use the dot (.) syntax to access variables/fields inside a class.  
-```myCar.color```.
-
-
-**Multiple Objects**  
-Let's create some more objects:
-```csharp
-class Car
-{
-  string color = "red";
-  static void Main(string[] args)
-  {
-    Car myCar1 = new Car();
-    Car myCar2 = new Car();
-    Console.WriteLine(myCar1.color);
-    Console.WriteLine(myCar2.color);
-  }
-}
-```
-
-**Using multiple classes**  
-You can also create an object of a class and access it in another class.  
-This is often used for better organization of classes (one class has all the fields and methods
-while the other holds the Main() method (code to be executed))
-* prog.cs
-* prog2.cs
-
-```csharp
-// prog2.cs
-class Car
-{
-    public string color = "red";
-}
-```
-
-```csharp
-// prog.cs
-class Program
-{
-    static void Main(string[] args)
-    {
-        Car myCar = new Car();
-        Console.WriteLine(myCar.color);
-    }
-}
-```
-Note that ```string color = "red"``` is now set to public.  
-This is called an ```access modifier```, which specifies that the ```color```
-variable/field of ```Car``` is accessible for other classes as well, such as Program.
-
-
-**Class Members**  
-Fields and methods inside classes are often referred to as ```Class Members```.
-
-Example:
-```csharp
-class MyClass
-{
-    // Class members
-    string color = "red";
-    int maxSpeed = 200;
-    
-    public void fullThrottle()
-    {
-        Console.WriteLine("The car is going as fast as it can.")
-    }
-}
-```
-
-**Fields**  
-Example:  
-We create an object of the Car class and print out the fields color and maxSpeed.
-```csharp
-class Car
-{
-    string color = "red";
-    int maxSpeed = 200;
-    
-    static void Main(string[] args)
-    {
-        Car myCar = new Car();
-        Console.WriteLine(myCar.color);
-        Console.WriteLine(myCar.maxSpeed);
-    }
-}
-```
-You can also leave the fields empty and modify them when creating the object:
-```csharp
-class Car 
-{
-  string color;
-  int maxSpeed;
-
-  static void Main(string[] args)
-  {
-      Car myCar = new Car();
-      myCar.color = "red";
-      myCar.maxSpeed = 200;
-      Console.WriteLine(myCar.color);
-      Console.WriteLine(myCar.maxSpeed);
-```
-This is especially useful when creating multiple objects of one class:
-```csharp
-class Car 
-{
-  string model;
-  string color;
-  int year;
-
-  static void Main(string[] args)
-  {
-    Car Ford = new Car();
-    Ford.model = "Mustang";
-    Ford.color = "red";
-    Ford.year = 1969;
-
-    Car Opel = new Car();
-    Opel.model = "Astra";
-    Opel.color = "white";
-    Opel.year = 2005;
-
-    Console.WriteLine(Ford.model);
-    Console.WriteLine(Opel.model);
-  }
-}
-```
-
-
-**Object Methods**  
-Methods normally belong to a class, and they define how an object behaves.  
-Just like with fields you can access methods with the dot syntax.  
-However, note that the method *must* be ```public```, and remember that 
-we use the name of the method followed by two parentheses () and a   
-semicolon ; to call the method.
-```csharp
-class Car 
-{
-  string color;                 // field
-  int maxSpeed;                 // field
-  public void fullThrottle()    // method
-  {
-    Console.WriteLine("The car is going as fast as it can!"); 
-  }
-
-  static void Main(string[] args)
-  {
-    Car myObj = new Car();
-    myObj.fullThrottle();  // Call the method
-  }
-}
-```
-A static method can be accessed without creating an object of the class, while public methods can
-only be accessed by objects.
-
-
-**Use Multiple Classes**  
-Better organization (one for fields and methods, one for Main):
-```csharp
-// prog2.cs
-class Car 
-{
-  public string model;
-  public string color;
-  public int year;
-  public void fullThrottle()
-  {
-    Console.WriteLine("The car is going as fast as it can!"); 
-  }
-}
-
-```
-```csharp
-// prog.cs
-class Program
-{
-  static void Main(string[] args)
-  {
-    Car Ford = new Car();
-    Ford.model = "Mustang";
-    Ford.color = "red";
-    Ford.year = 1969;
-
-    Car Opel = new Car();
-    Opel.model = "Astra";
-    Opel.color = "white";
-    Opel.year = 2005;
-
-    Console.WriteLine(Ford.model);
-    Console.WriteLine(Opel.model);
-  }
-}
-```
-
-**Constructors**  
-A constructor is a special method that is used to initialize objects. The advantage of a constructor
-is that it is called when an object of a class is created.  
-It can be used to set initial values for fields.
-
-Example with no properties, just field and constructor:
-```csharp
-// Create a Car class
-class Car
-{ 
-  // Create a field
-  public string model;
-
-  // Create a class constructor for the Car class
-  public Car()
-  {
-    model = "Mustang"; // Set the initial value for model
-  }
-
-  static void Main(string[] args)
-  {
-    Car Ford = new Car();  // Create an object of the Car Class (this will call the constructor)
-    Console.WriteLine(Ford.model);  // Print the value of model
-  }
-}
-
-// Outputs "Mustang"
-```
-
-A constructor name must match the class name, and cannot have a return type like void, string, etc.
-Also note that the constructor is called when the object is created.  
-All classes have constructors by default.  
-If you do not create a class constructor yourself, C# creates one for you. However, then you are not able to set 
-initial values for fields.  
-*Constructors save time!*
-
-
-**Constructor Parameters**  
-Constructors can take parameters, used to initialize fields.  
-
-Example: adds a string modelName param to the constructor:
-```csharp
-class Car
-{
-  public string model;
-
-  // Create a class constructor with a parameter
-  public Car(string modelName)
-  {
-    model = modelName;
-  }
-
-  static void Main(string[] args)
-  {
-    Car Ford = new Car("Mustang");
-    Console.WriteLine(Ford.model);
-  }
-}
-
-// Outputs "Mustang"
-```
-You can have as many parameters as you want.
-
-Another example:
-```csharp
-class Car
-{
-  // Fields:
-  public string model;
-  public string color;
-  public int year;
-  
-  // No properties
-  
-  // Create a class constructor with multiple parameters
-  public Car(string modelName, string modelColor, int modelYear)
-  {
-    model = modelName;
-    color = modelColor;
-    year = modelYear;
-  }
-
-  static void Main(string[] args)
-  {
-    Car Ford = new Car("Mustang", "Red", 1969);
-    Console.WriteLine(Ford.color + " " + Ford.year + " " + Ford.model);
-  }
-}
-
-
-// Outputs Red 1969 Mustang
-```
-
-Constructors can also be overloaded, just like other methods, by using different numbers of params.
-
-
-**Constructors Save Time**  
-- Very useful.
-- Reduce amount of code.
-
-*Without Constructor*:
-```csharp
-class Program
-{
-  static void Main(string[] args)
-  {
-    Car Ford = new Car();
-    Ford.model = "Mustang";
-    Ford.color = "red";
-    Ford.year = 1969;
-
-    Car Opel = new Car();
-    Opel.model = "Astra";
-    Opel.color = "white";
-    Opel.year = 2005;
-
-    Console.WriteLine(Ford.model);
-    Console.WriteLine(Opel.model);
-  }
-}
-```
-
-*With Constructor:*
-```csharp
-class Program
-{
-  static void Main(string[] args)
-  {
-    Car Ford = new Car("Mustang", "Red", 1969);
-    Car Opel = new Car("Astra", "White", 2005);
-
-    Console.WriteLine(Ford.model);
-    Console.WriteLine(Opel.model);
-  }
-}
-```
-
-**Access Modifiers**  
-The keyword ```public``` is an access modifiers.  
-They are used to set access level/visibility for classes, fields, methods 
-and properties.  
-There are several types.  
-
-| **Modifier** | **Description**                                                             |
-|--------------|-----------------------------------------------------------------------------|
-| public       | Code is accessible for all classes                                          |
-| private      | Code is only accessible within the same class                               |
-| protected    | Code is accessible within the same class, or a class that inherits from it  |
-| internal     | Code is accessible within its own assembly, but not others                  |
-
-There is two combinations:
-- protected internal
-- private protected
-
-**Private Modifiers**  
-If you declare a field with a ```private``` access modifier, it can only  
-be accessed within the same class.  
-Example:
-```csharp
-class Car
-{
-  private string model = "Mustang";
-
-  static void Main(string[] args)
-  {
-    Car myObj = new Car();
-    Console.WriteLine(myObj.model);
-  }
-}
-```
-
-If you try to access it outside the class, an error will occur:
-```csharp
-class Car
-{
-  private string model = "Mustang";
-}
-
-class Program
-{
-  static void Main(string[] args)
-  {
-    Car myObj = new Car();
-    Console.WriteLine(myObj.model);
-  }
-}
-```
->'Car.model' is inaccessible due to its protection level
-The field 'Car.model' is assigned but its value is never used
-
-
-**Public Modifier**  
-If you declare a field ```public``` it is accessible for all classes:
-```csharp
-class Car
-{
-  public string model = "Mustang";
-}
-
-class Program
-{
-  static void Main(string[] args)
-  {
-    Car myObj = new Car();
-    Console.WriteLine(myObj.model);
-  }
-}
-```
-
-*Why access modifiers?*  
-To control the visibility of class members (security level of each individual
-class member).  
-To achieve ```encapsulation``` - the process of making sure that 'sensitive' data is 
-hidden from users. This is done by declaring fields as ```private```.
-
-By default, all members of a class are ```private``` if you don't specify an access modifier.
-
-```csharp
-class Car
-{
-  string model;  // private
-  string year;   // private
-}
-```
-
-**Properties**  
-!
-
-
-
-
----
-
-[🏚️ Back to top](#contents)
 
 ---
 
@@ -2696,3 +2201,1228 @@ namespace TraditionalExample
 }
 
 ```
+
+### Classes
+
+**OOP**  
+Object-Oriented Programming.  
+```Procedural Programming``` is about writing procedures or methods that perform operations on data,
+while ```Object-Oriented Programming``` is about creating objects that contain both ```data and methods```.
+
+OOP has several advantages over procedural programming:
+- faster
+- clear structure for programs
+- helps keep the C# code DRY
+- easier to maintain
+- easier to modify
+- easier to debug
+- create full reusable applications with less code and shorter dev time
+
+GeeksForGeeks:  
+[Read about the DRY Principle](https://www.geeksforgeeks.org/software-engineering/dont-repeat-yourselfdry-in-software-development/)
+
+**What are classes and objects?**  
+Classes and objects are the two main aspects of OOP.
+
+An example of a class could be Fruit.  
+An object of said class could be Apple.
+
+The class is a template for the objects.  
+The objects are instances of a class.
+
+**Classes and Objects**  
+Everything in C# is associated with classes and objects, along with its
+attributes and methods.  
+A real life example could be Car (class). It has ```attributes``` such as weight and color,
+and ```methods``` such as Drive and Brake.
+
+Example:
+```csharp
+class Car
+{
+    string color = "red";
+}
+```
+When a variable is declared directly in the class, it is often referred to as a ```field```,
+or ```attribute```.  
+It is not required, but it's good practice to start with Uppercase first letter when naming
+classes. Also, it is common that the name of the C# file and the class matches,
+as it makes the code more organized. It is, however, not required, like in Java.
+
+
+**Create an Object**  
+We have the class ```Car```. Now we create some objects.
+```csharp
+class Car
+{
+    string color = "red";
+    
+    static void Main(string[] args)
+    {
+        Car myCar = new Car();
+        Console.WriteLine(myCar.color);
+    }
+}
+```
+Note that we use the dot (.) syntax to access variables/fields inside a class.  
+```myCar.color```.
+
+
+**Multiple Objects**  
+Let's create some more objects:
+```csharp
+class Car
+{
+  string color = "red";
+  static void Main(string[] args)
+  {
+    Car myCar1 = new Car();
+    Car myCar2 = new Car();
+    Console.WriteLine(myCar1.color);
+    Console.WriteLine(myCar2.color);
+  }
+}
+```
+
+**Using multiple classes**  
+You can also create an object of a class and access it in another class.  
+This is often used for better organization of classes (one class has all the fields and methods
+while the other holds the Main() method (code to be executed))
+* prog.cs
+* prog2.cs
+
+```csharp
+// prog2.cs
+class Car
+{
+    public string color = "red";
+}
+```
+
+```csharp
+// prog.cs
+class Program
+{
+    static void Main(string[] args)
+    {
+        Car myCar = new Car();
+        Console.WriteLine(myCar.color);
+    }
+}
+```
+Note that ```string color = "red"``` is now set to public.  
+This is called an ```access modifier```, which specifies that the ```color```
+variable/field of ```Car``` is accessible for other classes as well, such as Program.
+
+
+**Class Members**  
+Fields and methods inside classes are often referred to as ```Class Members```.
+
+Example:
+```csharp
+class MyClass
+{
+    // Class members
+    string color = "red";
+    int maxSpeed = 200;
+    
+    public void fullThrottle()
+    {
+        Console.WriteLine("The car is going as fast as it can.")
+    }
+}
+```
+
+**Fields**  
+Example:  
+We create an object of the Car class and print out the fields color and maxSpeed.
+```csharp
+class Car
+{
+    string color = "red";
+    int maxSpeed = 200;
+    
+    static void Main(string[] args)
+    {
+        Car myCar = new Car();
+        Console.WriteLine(myCar.color);
+        Console.WriteLine(myCar.maxSpeed);
+    }
+}
+```
+You can also leave the fields empty and modify them when creating the object:
+```csharp
+class Car 
+{
+  string color;
+  int maxSpeed;
+
+  static void Main(string[] args)
+  {
+      Car myCar = new Car();
+      myCar.color = "red";
+      myCar.maxSpeed = 200;
+      Console.WriteLine(myCar.color);
+      Console.WriteLine(myCar.maxSpeed);
+```
+This is especially useful when creating multiple objects of one class:
+```csharp
+class Car 
+{
+  string model;
+  string color;
+  int year;
+
+  static void Main(string[] args)
+  {
+    Car Ford = new Car();
+    Ford.model = "Mustang";
+    Ford.color = "red";
+    Ford.year = 1969;
+
+    Car Opel = new Car();
+    Opel.model = "Astra";
+    Opel.color = "white";
+    Opel.year = 2005;
+
+    Console.WriteLine(Ford.model);
+    Console.WriteLine(Opel.model);
+  }
+}
+```
+
+
+**Object Methods**  
+Methods normally belong to a class, and they define how an object behaves.  
+Just like with fields you can access methods with the dot syntax.  
+However, note that the method *must* be ```public```, and remember that
+we use the name of the method followed by two parentheses () and a   
+semicolon ; to call the method.
+```csharp
+class Car 
+{
+  string color;                 // field
+  int maxSpeed;                 // field
+  public void fullThrottle()    // method
+  {
+    Console.WriteLine("The car is going as fast as it can!"); 
+  }
+
+  static void Main(string[] args)
+  {
+    Car myObj = new Car();
+    myObj.fullThrottle();  // Call the method
+  }
+}
+```
+A static method can be accessed without creating an object of the class, while public methods can
+only be accessed by objects.
+
+
+**Use Multiple Classes**  
+Better organization (one for fields and methods, one for Main):
+```csharp
+// prog2.cs
+class Car 
+{
+  public string model;
+  public string color;
+  public int year;
+  public void fullThrottle()
+  {
+    Console.WriteLine("The car is going as fast as it can!"); 
+  }
+}
+
+```
+```csharp
+// prog.cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Car Ford = new Car();
+    Ford.model = "Mustang";
+    Ford.color = "red";
+    Ford.year = 1969;
+
+    Car Opel = new Car();
+    Opel.model = "Astra";
+    Opel.color = "white";
+    Opel.year = 2005;
+
+    Console.WriteLine(Ford.model);
+    Console.WriteLine(Opel.model);
+  }
+}
+```
+
+**Constructors**  
+A constructor is a special method that is used to initialize objects. The advantage of a constructor
+is that it is called when an object of a class is created.  
+It can be used to set initial values for fields.
+
+Example with no properties, just field and constructor:
+```csharp
+// Create a Car class
+class Car
+{ 
+  // Create a field
+  public string model;
+
+  // Create a class constructor for the Car class
+  public Car()
+  {
+    model = "Mustang"; // Set the initial value for model
+  }
+
+  static void Main(string[] args)
+  {
+    Car Ford = new Car();  // Create an object of the Car Class (this will call the constructor)
+    Console.WriteLine(Ford.model);  // Print the value of model
+  }
+}
+
+// Outputs "Mustang"
+```
+
+A constructor name must match the class name, and cannot have a return type like void, string, etc.
+Also note that the constructor is called when the object is created.  
+All classes have constructors by default.  
+If you do not create a class constructor yourself, C# creates one for you. However, then you are not able to set
+initial values for fields.  
+*Constructors save time!*
+
+
+**Constructor Parameters**  
+Constructors can take parameters, used to initialize fields.
+
+Example: adds a string modelName param to the constructor:
+```csharp
+class Car
+{
+  public string model;
+
+  // Create a class constructor with a parameter
+  public Car(string modelName)
+  {
+    model = modelName;
+  }
+
+  static void Main(string[] args)
+  {
+    Car Ford = new Car("Mustang");
+    Console.WriteLine(Ford.model);
+  }
+}
+
+// Outputs "Mustang"
+```
+You can have as many parameters as you want.
+
+Another example:
+```csharp
+class Car
+{
+  // Fields:
+  public string model;
+  public string color;
+  public int year;
+  
+  // No properties
+  
+  // Create a class constructor with multiple parameters
+  public Car(string modelName, string modelColor, int modelYear)
+  {
+    model = modelName;
+    color = modelColor;
+    year = modelYear;
+  }
+
+  static void Main(string[] args)
+  {
+    Car Ford = new Car("Mustang", "Red", 1969);
+    Console.WriteLine(Ford.color + " " + Ford.year + " " + Ford.model);
+  }
+}
+
+
+// Outputs Red 1969 Mustang
+```
+
+Constructors can also be overloaded, just like other methods, by using different numbers of params.
+
+
+**Constructors Save Time**
+- Very useful.
+- Reduce amount of code.
+
+*Without Constructor*:
+```csharp
+class Program
+{
+  static void Main(string[] args)
+  {
+    Car Ford = new Car();
+    Ford.model = "Mustang";
+    Ford.color = "red";
+    Ford.year = 1969;
+
+    Car Opel = new Car();
+    Opel.model = "Astra";
+    Opel.color = "white";
+    Opel.year = 2005;
+
+    Console.WriteLine(Ford.model);
+    Console.WriteLine(Opel.model);
+  }
+}
+```
+
+*With Constructor:*
+```csharp
+class Program
+{
+  static void Main(string[] args)
+  {
+    Car Ford = new Car("Mustang", "Red", 1969);
+    Car Opel = new Car("Astra", "White", 2005);
+
+    Console.WriteLine(Ford.model);
+    Console.WriteLine(Opel.model);
+  }
+}
+```
+
+**Access Modifiers**  
+The keyword ```public``` is an access modifiers.  
+They are used to set access level/visibility for classes, fields, methods
+and properties.  
+There are several types.
+
+| **Modifier** | **Description**                                                             |
+|--------------|-----------------------------------------------------------------------------|
+| public       | Code is accessible for all classes                                          |
+| private      | Code is only accessible within the same class                               |
+| protected    | Code is accessible within the same class, or a class that inherits from it  |
+| internal     | Code is accessible within its own assembly, but not others                  |
+
+There is two combinations:
+- protected internal
+- private protected
+
+**Private Modifiers**  
+If you declare a field with a ```private``` access modifier, it can only  
+be accessed within the same class.  
+Example:
+```csharp
+class Car
+{
+  private string model = "Mustang";
+
+  static void Main(string[] args)
+  {
+    Car myObj = new Car();
+    Console.WriteLine(myObj.model);
+  }
+}
+```
+
+If you try to access it outside the class, an error will occur:
+```csharp
+class Car
+{
+  private string model = "Mustang";
+}
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    Car myObj = new Car();
+    Console.WriteLine(myObj.model);
+  }
+}
+```
+>'Car.model' is inaccessible due to its protection level
+The field 'Car.model' is assigned but its value is never used
+
+
+**Public Modifier**  
+If you declare a field ```public``` it is accessible for all classes:
+```csharp
+class Car
+{
+  public string model = "Mustang";
+}
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    Car myObj = new Car();
+    Console.WriteLine(myObj.model);
+  }
+}
+```
+
+*Why access modifiers?*  
+To control the visibility of class members (security level of each individual
+class member).  
+To achieve ```encapsulation``` - the process of making sure that 'sensitive' data is
+hidden from users. This is done by declaring fields as ```private```.
+
+By default, all members of a class are ```private``` if you don't specify an access modifier.
+
+```csharp
+class Car
+{
+  string model;  // private
+  string year;   // private
+}
+```
+
+**Properties and Encapsulation**  
+Now, basic understanding of ```encapsulation```.
+
+The meaning of ```encapsulation``` is to make sure that 'sensitive data' is hidden from
+users.  
+To achieve this, you must:
+- declate fields/variables as private
+- provide ```public get``` and ´´´set````methods through properties to get access to values
+  of ```private``` fields.
+
+
+**Properties**  
+Private variables can only be accessed within the same class (an outside class has no access).  
+However sometimes we need to access them, and it can be done with properties.
+
+A property is like a combination of a variable and a method, and it has two methods: ```get``` and ```set````:
+```csharp
+class Person
+{
+    private string name; // field
+    
+    public string Name // property
+    {
+        get { return name; } // get method
+        set { name = value; } // set method
+    }
+}
+```
+Example explained:
+- ```Name``` property is associated with the ```name````field
+- Same name for propery and private field is good practice, case difference
+- ```get``` method returns the value of variable ```name```.
+- ```set``` method assigns a ```value``` to the ```name``` variable, where value
+  represents the value we assign to the property.
+
+An example to further explain and ease understanding:  
+We can use the ```Name``` property to access and update the ```private``` field of the Person class.
+
+```csharp
+class Person
+{
+    private string name; // field
+    
+    public string Name // property
+    {
+        get { return name; } // get method
+        set { name = value; } // set method
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Person myObj = new Person();
+        myObj.Name = "Liam";
+        Console.WriteLine("myObj.Name");
+    }
+}
+```
+```value``` = myObj.Name => "Liam"
+
+
+**Automatic Properties (short hand)**  
+Where you don't have to define the field for the property, and only have to  
+write ```get; set; ``` inside the propery. 
+
+Example:
+```csharp
+class Person
+{
+  public string Name  // property
+  { get; set; }
+}
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    Person myObj = new Person();
+    myObj.Name = "Liam";
+    Console.WriteLine(myObj.Name);
+  }
+}
+```
+
+**Why Encapsulation?**  
+* Better control of class members (reduce danger of anyone messing up the code)
+* Fields can be made **read-only** if you only use the ```get`` method
+* Fields can be made **write-only** if you use only the ```set``` method
+* Flexible: Programmer can change one part of code without affecting other parts
+* Increased security of data
+
+
+
+**Inheritance**  
+It is possible to inherit fields and methods from one class to another.  
+We group the 'inheritance concept' into two categories:
+- **Derived Class (child)** - the class that inherits from another class
+- **Base Class (parent)** - the class being inherited from
+
+To inherit from a class, we use the : symbol (like tasks inherit from ITask in this project).
+
+Example: Class Car (child) inherits fields and methods from Vehicle class (parent):
+```csharp
+class Vehicle // base class (parent)
+{
+    public string brand = "Ford"; // Vehicle field
+    
+    public void honk() // Vehicle method
+    {
+        Console.WriteLine("Tuuuut, tuuuuuuuuut!");
+    }
+}
+
+class Car : Vehicle // derived class (child)
+{
+    public string modelName = "Mustang"; // Car field
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Create object
+        Car myCar = new Car();
+        
+        // Call the method
+        myCar.honk();
+        
+        // Display the value of the brand field (Vehicle class) and value of the
+        // modelName from the Car class
+        Console.WriteLine(myCar.brand + " " + myCar.modelName);
+    }
+}
+```
+
+**Why and When to use Inheritance?**  
+Useful for code reusability: reuse fields and methods rom existing class when you create a new one
+
+
+**The SEALED Keyword**  
+If you don't want other classes to inherit from a class, use ```sealed``` keyword:  
+If you try to access a sealed class, C# will generate an error:
+```csharp
+// Snippet
+sealed class Vehicle 
+{
+  ...
+}
+
+class Car : Vehicle 
+{
+  ...
+}
+```
+>'Car': cannot derive from sealed type 'Vehicle'
+
+
+**Polymorphism**  
+Polymorphism and overriding methods:  
+Polymorphism means "many forms", and occurs when we have many classes that
+are related to each other by inheritance
+
+Inheritance lets us inherit fields and methods from another class.  
+Polymorphism uses those methods to perform different tasks.  
+This allows us to perform a single action in different ways.
+
+Example: Class Animal, method animalSound(). A derived class could be many things.  
+Pig, Cat, Dog, Bird - and they also have their own implementation of an animal sound:  
+Pig oinks, Cat meows, etc.
+
+```csharp
+class Animal // base
+{
+    public void animalSound()
+    {
+        Console.WriteLine("The animal makes a sound.");
+    }
+}
+
+class Pig : Animal // derived
+{
+    public void animalSound()
+    {
+        Console.WriteLine("The pig says: wee wee")
+    }
+}
+
+class Dog : Animal // derived
+{
+    public void animalSound()
+    {
+        Console.WriteLine("The dog says: bow wow");
+    }
+}
+
+class Program 
+{
+  static void Main(string[] args) 
+  {
+    Animal myAnimal = new Animal();  // Create a Animal object
+    Animal myPig = new Pig();  // Create a Pig object
+    Animal myDog = new Dog();  // Create a Dog object
+
+    myAnimal.animalSound();
+    myPig.animalSound();
+    myDog.animalSound();
+  }
+}
+```
+Output of this will be:
+>The animal makes a sound
+>
+>The animal makes a sound
+>
+>The animal makes a sound
+
+Not quite what we were looking for.  
+This is because the base class method overrides the derived class method when they
+share the same name!
+
+However, C# provides an option to override the base class method, by adding the ```virtual```
+keyword to the method inside the ```base class```, and by using the ```override``` 
+keyword for each derived class method:
+```csharp
+class Animal  // Base class (parent) 
+{
+  public virtual void animalSound()  // virtual!
+  {
+    Console.WriteLine("The animal makes a sound");
+  }
+}
+
+class Pig : Animal  // Derived class (child) 
+{
+  public override void animalSound()  // override!
+  {
+    Console.WriteLine("The pig says: wee wee");
+  }
+}
+
+class Dog : Animal  // Derived class (child) 
+{
+  public override void animalSound() 
+  {
+    Console.WriteLine("The dog says: bow wow");
+  }
+}
+
+class Program 
+{
+  static void Main(string[] args) 
+  {
+    Animal myAnimal = new Animal();  // Create a Animal object
+    Animal myPig = new Pig();  // Create a Pig object
+    Animal myDog = new Dog();  // Create a Dog object
+
+    myAnimal.animalSound();
+    myPig.animalSound();
+    myDog.animalSound();
+  }
+}
+```
+Now, the output will be this instead:
+>The animal makes a sound
+> 
+>The pig says: wee wee
+> 
+>The dog says: bow wow
+
+**When to use Polymorphism and Inheritance?**  
+- code reusability
+- reuse fields
+- reuse methods
+
+
+**Abstraction**  
+Abstraction Classes and Methods.  
+Data **abstraction** is the process of hiding certain details and showing only
+essential information to the user.  
+Abstraction can be achieved with either **abstract classes** or **interfaces**.
+
+The ```abstract``` keyword is used for classes and methods:
+* Abstract class - restricted class that cannot be used to create objects 
+  (to access it, it must be inherited from another class)
+* Abstract method - can only be used in an abstract class, and does not have a body.
+  The body is provided by derived classes (inherited from)
+
+An abstract class can have both abstract and regular methods:
+```csharp
+abstract class Animal
+{
+    public abstract void animalSound();
+    public void sleep()
+    {
+        Console.WriteLine("Zzzz...");
+    }
+}
+```
+From the example above, it is not possible to create an object of the Animal class.
+```csharp
+Animal myObj = new Animal(); // Will generate an error
+// Cannot create an instance of 
+// the abstract class or interface 'Animal'
+```
+To access the abstract class, it must be inherited from another class.  
+We will now convert the Animal class we used in Polymorphism to an abstract class.
+
+Remember: Inheritance is the ':' symbol!  
+override keyword to override base class method.
+
+```csharp
+// Abstract class
+abstract class Animal
+{
+  // Abstract method (does not have a body)
+  public abstract void animalSound();
+  // Regular method
+  public void sleep()
+  {
+    Console.WriteLine("Zzz");
+  }
+}
+
+// Derived class (inherit from Animal)
+class Pig : Animal
+{
+  public override void animalSound()
+  {
+    // The body of animalSound() is provided here
+    Console.WriteLine("The pig says: wee wee");
+  }
+}
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    Pig myPig = new Pig(); // Create a Pig object
+    myPig.animalSound();  // Call the abstract method
+    myPig.sleep();  // Call the regular method
+  }
+}
+```
+
+
+**Why and When to use Abstract Classes and Methods?**  
+To achieve security - hide certain details and only show the important details of an object.
+
+Abstraction can also be achieved with ```interfaces```.
+
+
+**Interface**  
+Another way to achieve abstraction.  
+An ```interface``` is a completely **abstract class**, which can only contain
+abstract methods and properties (with empty bodies).
+
+```csharp
+// interface
+interface Animal
+{
+    void animalSound(); // interface method (no body)
+    void Run(); // interface method (no body)
+}
+```
+
+It is considered good practice to start with the letter 'I' (uppercase i) at the 
+beginning of an interface, as it makes it easier for yourself and others to remember
+it is an interface and not a class.  
+By **default** members of an interface are **abstract** and **public**.
+
+Interfaces can contain properties and methods, but not fields.
+
+To access the interface methods, the interface must be 'implemented' (kinda like
+inherited), by another class.
+
+To implement an interface, use the inherit symbol ':'.  
+The body of the interface method is provided by the implement class.  
+Note that you do not have to use ```override``` when implementing an interface:
+```csharp
+// Interface
+interface IAnimal 
+{
+  void animalSound(); // interface method (does not have a body)
+}
+
+// Pig "implements" the IAnimal interface
+class Pig : IAnimal 
+{
+  public void animalSound() 
+  {
+    // The body of animalSound() is provided here
+    Console.WriteLine("The pig says: wee wee");
+  }
+}
+
+class Program 
+{
+  static void Main(string[] args) 
+  {
+    Pig myPig = new Pig();  // Create a Pig object
+    myPig.animalSound();
+  }
+}
+```
+
+**Notes on Interfaces**  
+* Like abstract classes, interfaces cannot be used to create objects
+* Interface methods do not have a body
+* On implementation, you must override all methods
+* Interfaces can contain properties and methods, but not fields/variables
+* Members are by default **abstract** and **public**
+* An interface cannot contain a constructor
+
+**When and Why to use Interfaces:**  
+1. Achieve security - hide details, show important details
+2. "Multiple inheritance": a class can only inherit from ONE base class, but multiple
+  can be achieved by using interfaces, because the class can implement multiple interfaces
+
+Note: To implement multiple interfaces, separate them with a comma.
+
+
+**Multiple Interfaces**  
+Separate them with commas.
+```csharp
+interface IFirstInterface 
+{
+  void myMethod(); // interface method
+}
+
+interface ISecondInterface 
+{
+  void myOtherMethod(); // interface method
+}
+
+// Implement multiple interfaces
+class DemoClass : IFirstInterface, ISecondInterface 
+{
+  public void myMethod() 
+  {
+    Console.WriteLine("Some text..");
+  }
+  public void myOtherMethod() 
+  {
+    Console.WriteLine("Some other text...");
+  }
+}
+
+class Program 
+{
+  static void Main(string[] args)
+  {
+    DemoClass myObj = new DemoClass();
+    myObj.myMethod();
+    myObj.myOtherMethod();
+  }
+}
+```
+
+**Enums**  
+An ```enum``` is a special "class" that represents a group of constants (unchangeable, read-only).
+
+To create an enum, use the enum keyword (instead of class or interface), and separate the enum
+items with commas.
+
+Example:
+```csharp
+enum Level
+{
+    Low,
+    Medium,
+    High
+}
+```
+
+You can access enum items with the dot syntax:
+```csharp
+Level myVar = Level.Medium;
+Console.WriteLine(myVar);
+```
+
+Enum is short for enumerations, which means "specifically listed".
+
+
+**Enum inside a Class**  
+Inside a class:
+```csharp
+class Program
+{
+  enum Level
+  {
+    Low,
+    Medium,
+    High
+  }
+  static void Main(string[] args)
+  {
+    Level myVar = Level.Medium;
+    Console.WriteLine(myVar);
+  }
+}
+```
+
+**Enum Values**  
+By default, the first item of an enum has the value 0. The second has the value 1, etc.
+
+To get the int value from an item, you must explicitly convert the item to an int:
+```csharp
+enum Months
+{
+  January,    // 0
+  February,   // 1
+  March,      // 2
+  April,      // 3
+  May,        // 4
+  June,       // 5
+  July        // 6
+}
+
+static void Main(string[] args)
+{
+  int myNum = (int) Months.April;
+  Console.WriteLine(myNum);
+}
+```
+You can also assign your own enum values, and the
+next item will update their numbers accordingly:
+
+```csharp
+enum Months
+{
+  January,    // 0
+  February,   // 1
+  March=6,    // 6
+  April,      // 7
+  May,        // 8
+  June,       // 9
+  July        // 10
+}
+
+static void Main(string[] args)
+{
+  int myNum = (int) Months.April;
+  Console.WriteLine(myNum);
+}
+```
+
+
+**Enum in a Switch Statement**  
+Enums are often used in ```switch``` statements to check for corresponding values:
+```csharp
+enum Level 
+{
+  Low,
+  Medium,
+  High
+}
+
+static void Main(string[] args) 
+{
+  Level myVar = Level.Medium;
+  switch(myVar) 
+  {
+    case Level.Low:
+      Console.WriteLine("Low level");
+      break;
+    case Level.Medium:
+       Console.WriteLine("Medium level");
+      break;
+    case Level.High:
+      Console.WriteLine("High level");
+      break;
+  }
+}
+```
+
+**Why and When to use Enums?**  
+Use enums when you have values that you know aren't going to change, 
+like month days, days, colors, deck of cards, etc.
+
+
+**Files**  
+Working with Files.  
+The ```File``` class from the ```System.IO``` namespace allows us to work with files.
+```csharp
+using System.IO; // include the System.IO namespace
+
+File.SomeFileMethod(); // use the file class with methods
+```
+
+The ```File``` class has many useful methods for creating and getting information about files.
+
+| **Method**     | **Description**                                                          |
+|----------------|--------------------------------------------------------------------------|
+| AppendText()   | Appends text at the end of an existing file                              |
+| Copy()         | Copies a file                                                            |
+| Create()       | Creates of overwrites a file                                             |
+| Delete()       | Deletes a file                                                           |
+| Exists()       | Test whether the file exists                                             |
+| ReadAllText()  | Reads the contents of a file                                             |
+| Replace()      | Replaces the contents of a file with contents of another file            |
+| WriteAllText() | Creates a new file and writes the contents to it. If exists, overwritten |
+
+For a full list of methods:  
+https://learn.microsoft.com/en-us/dotnet/api/system.io.file?view=netframework-4.8
+
+
+**Write to a File and Read it**  
+We will use WriteAllText() to create a file named "filename.txt" and write some contents to it.  
+Then we use ReadAllText() to read the file contents.
+```csharp
+using System.IO; // Include IO namespace
+
+string writeText = "Hello World!"; // create text string
+File.WriteAllText("filename.txt", writeText); // Create a file and write to it
+
+string readText = File.ReadAllText("filename.txt"); // Read the file contents
+Console.WriteLine(readText); // Output the read content
+```
+Created task [WriteAndRead.cs](traditional_no_top_level/WriteAndRead.cs) for testing this.  
+Can confirm it works, and generated file will be included in repo.
+
+
+**Exceptions - Try...Catch**  
+Exceptions.  
+When executing C# code, different errors can occur: coding errors made by the programmer,
+errors due to wrong input, or other unforseeable things.  
+When an error occurs, C# will normally stop and generate an error message.  
+The technical term for this is: C# will throw and exception (throw an error)
+
+**C# try and catch**  
+The ```try```statement allows you to define a block of code to be tested for errors while
+it's being executed.  
+The ```catch```statement allows you to define a block of code to be executed if an error occurs.  
+The ```try``` and ```catch``` keywords come in pairs.
+```csharp
+try 
+{
+  //  Block of code to try
+}
+catch (Exception e)
+{
+  //  Block of code to handle errors
+}
+```
+
+Consider this example, we create an array of three integers:
+```csharp
+int[] myNumbers = {1, 2, 3};
+Console.WriteLine(myNumbers[10]); // Error!
+```
+Output:
+>System.IndexOutOfRangeException: 'Index was outside the bounds of the array.'
+
+If an error occurs, we can use try..catch to catch the error and execute some
+code to handle it.
+
+Example: variable inside a catch block (e), paired with built-in ```Message``` property.  
+This outputs a message that describes the exception:
+```csharp
+try
+{
+  int[] myNumbers = {1, 2, 3};
+  Console.WriteLine(myNumbers[10]);
+}
+catch (Exception e)
+{
+  Console.WriteLine(e.Message);
+}
+```
+Output will be:
+>Index was outside the bounds of the array.
+
+You can also output your own error message:
+```csharp
+try
+{
+  int[] myNumbers = {1, 2, 3};
+  Console.WriteLine(myNumbers[10]);
+}
+catch (Exception e)
+{
+  Console.WriteLine("Something went wrong.");
+}
+```
+
+**Finally**  
+The ```finally``` keyword lets you execute code after try...catch, regardless of result.  
+Example:
+```csharp
+try
+{
+  int[] myNumbers = {1, 2, 3};
+  Console.WriteLine(myNumbers[10]);
+}
+catch (Exception e)
+{
+  Console.WriteLine("Something went wrong.");
+}
+finally
+{
+  Console.WriteLine("The 'try catch' is finished.");
+}
+```
+Output:
+>Something went wrong.
+> 
+>The 'try catch' is finished.
+
+**The throw Keyword**  
+The ```throw``` statement allows you to create a custom error.  
+It is used together with an **exception class**. There are many exceptions
+available in C#: ```ArithmeticException```, ```FileNotFound```,
+```IndexOutOfRangeException```, ```TimeOutException```, etc.
+```csharp
+static void checkAge(int age)
+{
+  if (age < 18)
+  {
+    throw new ArithmeticException("Access denied - You must be at least 18 years old.");
+  }
+  else
+  {
+    Console.WriteLine("Access granted - You are old enough!");
+  }
+}
+
+static void Main(string[] args)
+{
+  checkAge(15);
+}
+```
+Output:
+>System.ArithmeticException: 
+> 'Access denied - You must be at least 18 years old.'
+
+If **age** was 20, you would not get an exception.
+
+
+
+
+
+---
