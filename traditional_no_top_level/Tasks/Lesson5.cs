@@ -1,6 +1,6 @@
 ﻿using traditional_no_top_level.Menu;
 // Lesson5.cs
-namespace traditional_no_top_level;
+namespace traditional_no_top_level.Tasks;
 
 public class MethodsAndParameters : ITask
 {

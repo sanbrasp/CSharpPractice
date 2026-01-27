@@ -2,7 +2,7 @@
 using System.IO.Pipes;
 using traditional_no_top_level.Menu;
 
-namespace traditional_no_top_level;
+namespace traditional_no_top_level.Tasks;
 
 public class ClassesAndObjects : ITask
 {

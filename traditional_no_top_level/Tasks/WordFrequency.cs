@@ -1,7 +1,7 @@
 ﻿using traditional_no_top_level.Menu;
 using traditional_no_top_level.Helpers;
 
-namespace traditional_no_top_level;
+namespace traditional_no_top_level.Tasks;
 
 public class WordFrequency : ITask
 {

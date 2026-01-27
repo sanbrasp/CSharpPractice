@@ -2,7 +2,7 @@
 using traditional_no_top_level.Helpers;
 using System.Linq;
 
-namespace traditional_no_top_level;
+namespace traditional_no_top_level.Tasks;
 
 public class PalindromeChecker : ITask
 {

@@ -2,7 +2,7 @@
 using System.IO;
 using traditional_no_top_level.Menu;
 
-namespace traditional_no_top_level;
+namespace traditional_no_top_level.Tasks;
 
 /// <summary>
 /// Class for practice task in file handling:
