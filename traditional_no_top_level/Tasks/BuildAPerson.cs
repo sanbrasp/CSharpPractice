@@ -13,11 +13,14 @@ public class BuildAPerson : ITask
     public void Run()
     {
         Person p1 = new Person("John", "Doe", 1987);
-
+        Person p2 = new Person("Jane", "Doe", 1988);
+        Person p3 = new Person("Hjørdis", "Drama Queen", 2000);
+        
         Console.WriteLine(p1.ShowFullName());
         Console.WriteLine(p1.GetBirthYear());
         Console.WriteLine(p1.IsPersonAlive());
         p1.PersonIsDead();
         Console.WriteLine(p1.IsPersonAlive());
+        Console.WriteLine($"{p1.ShowFullName()}, {p2.ShowFullName()}, and {p3.ShowFullName()}");
     }
 }
