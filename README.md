@@ -22,3 +22,7 @@ Updates as I go.
 The README in this project covers several subjects that have been useful during learning.
 
 ---
+
+I also intended to use mirror-push from Gitlab to Github for this project
+but unfortunately I couldn't get it to work, so I will try to remember to push 
+changes to both individual repos (bad, bad)
