@@ -11,8 +11,7 @@ the headache of changing them - so, they will be named like Python projects fore
 ---
 
 ## top_level_statements
-Was meant to contain practice tasks using top level statements. However I am not sure I will ever be 
-working much in that project as I see more value in learning the traditional way instead.
+Will probably not do much work in this project for now...
 
 ---
 
