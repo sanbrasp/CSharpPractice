@@ -4,7 +4,7 @@ This is a solution with two projects for my personal C# practice.
 
 ---
 
-The naming of the projjects was done before I knew about the naming convention, and I don't want 
+The naming of the projects was done before I knew about the naming convention, and I don't want 
 the headache of changing them - so, they will be named like Python projects forever and ever
 (unless I come across an easy, painless way to change them to the correct naming convention)
 
