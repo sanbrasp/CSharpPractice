@@ -1,4 +1,6 @@
-﻿namespace traditional_no_top_level.Interface;
+﻿using traditional_no_top_level.Models;
+
+namespace traditional_no_top_level.Interface;
 
 public interface IRental
 {
