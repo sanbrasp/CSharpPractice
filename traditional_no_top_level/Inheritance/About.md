@@ -17,3 +17,8 @@ When to use interface:
 - ```CAN```
 
 ---
+**Video Resources**  
+
+https://www.youtube.com/watch?v=EvSyka9vJho
+
+https://www.youtube.com/watch?v=4sxyDXt1igs&t=33s
