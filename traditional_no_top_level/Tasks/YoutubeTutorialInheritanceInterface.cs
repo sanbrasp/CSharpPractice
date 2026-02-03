@@ -6,7 +6,7 @@ namespace traditional_no_top_level.Tasks;
 
 public class YoutubeTutorialInheritanceInterface : ITask, IRental
 {
-    public string Subject => "Inheritance VS Interface";
+    public string Subject => "Inheritance / Interface";
     public string Title => "Youtube: Tutorial";
     public string Description => "Inheritance VS Interface";
     public int Number => 1;
