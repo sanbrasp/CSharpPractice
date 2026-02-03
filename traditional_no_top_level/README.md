@@ -6,6 +6,12 @@ Project created for personal use for the journey of learning C#.
 ---
 
 ## Contents
+
+<details>
+<summary>Click to Expand</summary>
+
+<br>
+
 - [Acknowledgements](#acknowledgements)
 - [About](#about)
 - [Useful sources](#useful-sources)
@@ -52,12 +58,18 @@ Project created for personal use for the journey of learning C#.
     - [Inheritance](#inheritance)
       - [The Sealed Keyword](#the-sealed-keyword)
       - [Polymorphism](#polymorphism)
+      - - [Inheritance - IAmTimCorey (Youtube)](#more-inheritance)
     - [Abstraction](#abstraction)
     - [Interface](#interface)
       - [Multiple Interfaces](#multiple-interfaces)
     - [Enums](#enums)
     - [Files](#files)
     - [Exceptions](#exceptions---trycatch)
+
+
+</details>
+
+
 
 ---
 
@@ -3009,6 +3021,15 @@ Now, the output will be this instead:
 - reuse methods
 
 
+### More inheritance
+Youtube video, IAmTimCorey:  
+https://www.youtube.com/watch?v=4sxyDXt1igs&t=33s
+
+Tutorial on inheritance and interface.
+
+Classes in Models.
+
+
 #### Abstraction
 Abstraction Classes and Methods.  
 Data **abstraction** is the process of hiding certain details and showing only
@@ -3475,3 +3496,6 @@ If **age** was 20, you would not get an exception.
 ---
 
 [🏚️ Back to top](#contents)
+
+---
+

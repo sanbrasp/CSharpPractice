@@ -8,8 +8,4 @@
         <RootNamespace>traditional_no_top_level</RootNamespace>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="Tas\" />
-    </ItemGroup>
-
 </Project>
