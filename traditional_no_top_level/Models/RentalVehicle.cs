@@ -6,7 +6,8 @@ namespace traditional_no_top_level.Models;
 
 public class RentalVehicle
 {
-    public int RentalId { get; set; }
+    public int RentalId = Guid.NewGuid().GetHashCode();
+    
     public string CurrentRenter { get; set; }
     public decimal PricePerDay { get; set; }
     public int NumberOfPassengers { get; set; }

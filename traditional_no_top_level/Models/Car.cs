@@ -2,7 +2,7 @@ using traditional_no_top_level.Interface;
 
 namespace traditional_no_top_level.Models;
 
-public class Car : LandVehicle, IRental
+public partial class Car : LandVehicle, IRental
 {
     public int RentalId { get; set; }
     public string CurrentRenter { get; set; }

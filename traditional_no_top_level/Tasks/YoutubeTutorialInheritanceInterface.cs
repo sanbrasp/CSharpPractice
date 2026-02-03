@@ -27,6 +27,11 @@ public class YoutubeTutorialInheritanceInterface : ITask, IRental
     rentals.Add(new Car { CurrentRenter = "Car Renter" });
     
     foreach (var rental in rentals)
-        Console.WriteLine($"Current renter: {rental.CurrentRenter}");
+        Console.WriteLine($"Renter: '{rental.CurrentRenter}' with rental ID: {rental.RentalId}. Price Per Day: {rental.PricePerDay}");
+
+    RentalCar rentalcar = new RentalCar();
+    rentalcar.CurrentRenter = "Mr Car Man";
+    Console.WriteLine($"Rental ID: {rentalcar.RentalId} - Renter: {rentalcar.CurrentRenter}");
+
     }
 }
