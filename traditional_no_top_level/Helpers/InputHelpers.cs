@@ -15,6 +15,11 @@ public class InputHelpers
     public static double Sum(double a, double b) => a + b;
 
     // Read an int safely
+    /// <summary>
+    /// Helper method that validates int input.
+    /// </summary>
+    /// <param name="prompt"></param>
+    /// <returns></returns>
     public static int ReadInt(string prompt)
     {
         while (true)
@@ -29,6 +34,11 @@ public class InputHelpers
     }
 
     // Read a double safely
+    /// <summary>
+    /// Helper method that validates double input.
+    /// </summary>
+    /// <param name="prompt"></param>
+    /// <returns></returns>
     public static double ReadDouble(string prompt)
     {
         while (true)
@@ -36,6 +46,25 @@ public class InputHelpers
             Console.Write(prompt);
             string? s = Console.ReadLine();
             if (double.TryParse(s, out var value))
+                return value;
+
+            Console.WriteLine("Invalid input. Please enter a number (e.g., -2.5, 0, 3.14).");
+        }
+    }
+    
+    // Simple helper method for reading and validating decimal input
+    /// <summary>
+    /// Helper method that validates decimal input.
+    /// </summary>
+    /// <param name="prompt"></param>
+    /// <returns></returns>
+    public static decimal ReadDecimal(string prompt)
+    {
+        while (true)
+        {
+            Console.Write(prompt);
+            string? s = Console.ReadLine();
+            if (decimal.TryParse(s, out var value))
                 return value;
 
             Console.WriteLine("Invalid input. Please enter a number (e.g., -2.5, 0, 3.14).");
