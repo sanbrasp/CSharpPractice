@@ -65,6 +65,7 @@ Project created for personal use for the journey of learning C#.
     - [Enums](#enums)
     - [Files](#files)
     - [Exceptions](#exceptions---trycatch)
+    - [UML](#uml)
 
 
 </details>
@@ -3498,4 +3499,17 @@ If **age** was 20, you would not get an exception.
 [🏚️ Back to top](#contents)
 
 ---
+
+## UML
+Info about UML Class Diagrams.
+
+Credit:  
+https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/
+
+![img.png](Images/img2.png)
+
+![img.png](Images/img.png)
+
+Unfinished example (work in progress):
+![img.png](Images/UMLExample.png)
 
