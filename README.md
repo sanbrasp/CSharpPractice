@@ -10,8 +10,10 @@ the headache of changing them - so, they will be named like Python projects fore
 
 ---
 
-## top_level_statements
-Will probably not do much work in this project for now...
+## ~~top_level_statements~~
+~~Will probably not do much work in this project for now...~~
+
+Deleted as it will not be used.
 
 ---
 
